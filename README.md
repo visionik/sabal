@@ -1,6 +1,6 @@
 # SABAL
 
-SABAL (Scott Adams Bot Adventure Library) is a headless TypeScript engine for the uncompressed Scott Adams text adventure database format. It is a library, not a game player you run by itself. Version 0.1.0 is MIT licensed, ESM, and ES2022. It runs on Node 20+ and in browsers, and it has no runtime dependencies.
+SABAL (Scott Adams Brass-lamp Adventure Library) is a headless TypeScript engine for the uncompressed Scott Adams text adventure database format. It is a library, not a game player you run by itself. Version 0.1.0 is MIT licensed, ESM, and ES2022. It runs on Node 20+ and in browsers, and it has no runtime dependencies.
 
 The engine never touches the filesystem, never sleeps, and has no terminal UI or wire protocol. Your program supplies the database text, for example with `fetch` or with its own Node `fs` code. Your program also draws the display, reads input, stores saves, and waits two seconds when the game asks.
 
