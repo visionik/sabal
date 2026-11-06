@@ -4,6 +4,10 @@
   "description": "Scott Adams Bot Adventure Library",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visionik/sabal.git"
+  },
   "engines": { "node": ">=20" },
   "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
   "files": ["dist", "README.md", "LICENSE"],
