@@ -13,7 +13,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { loadDatabase, createSession, DatabaseError, SaveError, InvalidIndexError, MissingArgumentError, SessionStateError } from '../dist/index.js';
 import { source, db, start, row, param, cond, text, rooms, fields } from './fixture.mjs';
 
-for (const file of readdirSync(new URL('../corpus/', import.meta.url))) {
+for (const file of readdirSync(new URL('../corpus/', import.meta.url)).filter((f) => f.endsWith('.dat'))) {
   test(`corpus ${file} loads, freezes and starts`, () => {
     const database = loadDatabase(readFileSync(new URL('../corpus/' + file, import.meta.url), 'utf8'));
     assert.ok(Object.isFrozen(database));
