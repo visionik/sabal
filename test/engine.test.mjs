@@ -1,3 +1,12 @@
+// Copyright (c) 2026 Jonathan Taylor (visionik)
+//
+// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// SPDX-License-Identifier: MIT
+// Licensed under the MIT License. See LICENSE in the project root.
+
+// Engine tests for loading, commands, movement, saves, waits, and actions.
+// Invented games come from fixture.mjs. Corpus files are only loaded and started.
+
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';

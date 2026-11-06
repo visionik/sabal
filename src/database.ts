@@ -1,3 +1,13 @@
+// Copyright (c) 2026 Jonathan Taylor (visionik)
+//
+// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// SPDX-License-Identifier: MIT
+// Licensed under the MIT License. See LICENSE in the project root.
+
+// Load uncompressed Scott Adams database text into a frozen Database.
+// Typed errors used by the loader and the session are defined here too.
+// lookup maps a typed word to its vocabulary parent index.
+
 export class SabalError extends Error {
   constructor(message: string) { super(message); this.name = new.target.name; }
 }
@@ -46,6 +56,7 @@ const ushort = (n: number): number => ((n % 65536) + 65536) % 65536;
 const short = (n: number): number => ((n + 32768) % 65536 + 65536) % 65536 - 32768;
 export const fold = (s: string): string => s.replace(/[a-z]/g, c => c.toUpperCase());
 
+// Scanner for the whitespace-separated integers and quoted strings in a database.
 class Reader {
   private position = 0;
   constructor(private text: string) {}
@@ -90,6 +101,9 @@ export function loadDatabase(text: string): Database {
       || h[5] < 0 || h[7] < 0 || h[8] < 1 || h[6] < 0 || h[6] > h[4] || h[11] < 0 || h[11] > h[4]) throw new Error();
   } catch { throw new DatabaseError('Invalid database(bad header).\n'); }
   const header: Header = { unused: h[0], highestItem: h[1], highestAction: h[2], highestVocabulary: h[3], highestRoom: h[4], carryingLimit: h[5], startingRoom: h[6], treasureCount: h[7], wordLength: h[8], lightTime: h[9], highestMessage: h[10], treasureRoom: h[11] };
+  // One action row per index through highestAction. Eight words: a selector,
+  // five condition words, and two packed action words. Each packed word holds
+  // two action codes as the quotient and remainder of 150.
   const actions = Array.from({ length: h[2] + 1 }, (_, i): ActionRow => {
     let values: number[];
     try { values = Array.from({ length: 8 }, () => ushort(r.integer())); }

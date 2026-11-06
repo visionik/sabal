@@ -1,3 +1,12 @@
+// Copyright (c) 2026 Jonathan Taylor (visionik)
+//
+// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// SPDX-License-Identifier: MIT
+// Licensed under the MIT License. See LICENSE in the project root.
+
+// Helpers that build tiny invented databases for the tests.
+// source writes uncompressed database text. db loads it. start opens a session.
+
 import { loadDatabase, createSession } from '../dist/index.js';
 export const quote = s => '"' + s.replaceAll('"', '""') + '"';
 export function row(verb = 7, noun = 0, codes = [], conditions = []) {

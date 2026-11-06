@@ -1,3 +1,12 @@
+// Copyright (c) 2026 Jonathan Taylor (visionik)
+//
+// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// SPDX-License-Identifier: MIT
+// Licensed under the MIT License. See LICENSE in the project root.
+
+// Tests that start with condition codes 1 to 19, then cover related
+// action, room, and parser cases that share the same fixture helpers.
+
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createSession, loadDatabase, InvalidIndexError } from '../dist/index.js';

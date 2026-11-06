@@ -1,7 +1,7 @@
 {
   "name": "sabal",
   "version": "0.1.0",
-  "description": "Scott Adams Bot Adventure Library",
+  "description": "SABAL: Scott Adams Bot Adventure Library",
   "type": "module",
   "license": "MIT",
   "repository": {

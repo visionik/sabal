@@ -1,3 +1,13 @@
+// Copyright (c) 2026 Jonathan Taylor (visionik)
+//
+// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// SPDX-License-Identifier: MIT
+// Licensed under the MIT License. See LICENSE in the project root.
+
+// A play session over an immutable database. It parses commands, runs the
+// turn loop, and yields events. Execution suspends when the host must store
+// a save or wait two seconds.
+
 import { type Database, type ActionRow, byte, fold, lookup, SabalError, SaveError, InvalidIndexError, MissingArgumentError, SessionStateError } from './database.js';
 
 export type Status = 'need-command' | 'need-save-identifier' | 'need-wait' | 'terminated';
@@ -61,6 +71,8 @@ export class Session {
   private require(status: Status): void {
     if (this.currentStatus !== status) throw new SessionStateError(`Expected ${status}; session is ${this.currentStatus}.`);
   }
+  // Run until a command prompt, a save prompt, a wait, or termination.
+  // A save prompt or a wait leaves the generator suspended at that action.
   private advance(events: Event[] = []): StepResult {
     for (;;) {
       const next = this.flow.next();
@@ -99,6 +111,8 @@ export class Session {
   private *checkpoint(): Flow { if (this.redraw) { yield this.roomEvent(); this.redraw = false; } }
   private *terminate(): Flow { this.ended = true; this.redraw = false; yield { kind: 'terminated' }; }
   private *gameOver(): Flow { yield this.response('The game is now over.\n'); yield* this.terminate(); }
+  // Turn loop: an opening look, then deferred look, automatic actions,
+  // deferred look, and a command prompt. Later looks run only when redraw is set.
   private *play(): Flow {
     yield this.roomEvent();
     while (!this.ended) {
@@ -107,6 +121,8 @@ export class Session {
       if (this.ended) return;
       yield* this.checkpoint();
       let verb = -1, noun = -1;
+      // Parser. Empty input or an unknown verb asks again and does not advance.
+      // A direction noun is verb 1. Other words are looked up as verb and noun.
       for (;;) {
         yield { kind: 'command-prompt', text: prompt };
         const fields = this.input.match(/[^ \t\r\n]{1,9}/g) ?? [];
@@ -144,6 +160,7 @@ export class Session {
   }
   private conditions(row: ActionRow): number[] | null {
     const args: number[] = [];
+    // Condition codes 0 to 19. Code 0 only stores a parameter for later actions.
     for (const word of row.conditions) {
       const code = word % 20, p = Math.floor(word / 20);
       if (code === 0) { args.push(p); continue; }
@@ -249,6 +266,9 @@ export class Session {
       return args[position++];
     };
     const roomArg = (): number => this.index(arg(), this.database.rooms.length, 'room');
+    // Action codes. 1 to 51 and 102 and above print messages. 0 is a no-op.
+    // 71 suspends for a save identifier. 88 suspends for a two-second wait.
+    // 90 to 101, and any other unused code, yield a diagnostic.
     for (const code of row.actions) {
       if (code >= 1 && code <= 51 || code >= 102) {
         const index = code >= 102 ? code - 50 : code;
