@@ -1,6 +1,6 @@
 // Copyright (c) 2026 Jonathan Taylor (visionik)
 //
-// This file is part of SABAL (Scott Adams Bot Adventure Library).
+// This file is part of SABAL (Scott Adams Brass-lamp Adventure Library).
 // SPDX-License-Identifier: MIT
 // Licensed under the MIT License. See LICENSE in the project root.
 
