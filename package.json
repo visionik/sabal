@@ -1,0 +1,12 @@
+{
+  "name": "sabal",
+  "version": "0.1.0",
+  "description": "Scott Adams Bot Adventure Library",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": { "build": "tsc", "test": "npm run build && node --test test/*.test.mjs" },
+  "devDependencies": { "typescript": "^5.7.0" }
+}
