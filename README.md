@@ -211,6 +211,6 @@ Edges the specification leaves undefined are closed this way: orphan vocabulary 
 
 `test/` holds invented tests written from the specification. They are not traces taken from another interpreter. No external interpreters or databases were consulted.
 
-`corpus/` holds the 18 text databases supplied with the clean-room packet. Load and startup tests use them. The files are `adv01.dat`, `adv02.dat`, `adv03.dat`, `adv04.dat`, `adv05.dat`, `adv06.dat`, `adv07.dat`, `adv08.dat`, `adv09.dat`, `adv10.dat`, `adv11.dat`, `adv12.dat`, `adv13.dat`, `adv14a.dat`, `adv14b.dat`, `quest1.dat`, `quest2.dat`, and `sampler1.dat`.
+`corpus/` holds the 18 text databases supplied with the clean-room packet. They are Scott Adams's games, © Scott Adams, 1978–1985, which he distributes as shareware, and they come unchanged from The Scott Adams Collection 2.2 on the Interactive Fiction Archive, converted by Paul David Doherty. [`corpus/README.md`](corpus/README.md) has the full shareware notice and credits. Load and startup tests use them. The files are `adv01.dat`, `adv02.dat`, `adv03.dat`, `adv04.dat`, `adv05.dat`, `adv06.dat`, `adv07.dat`, `adv08.dat`, `adv09.dat`, `adv10.dat`, `adv11.dat`, `adv12.dat`, `adv13.dat`, `adv14a.dat`, `adv14b.dat`, `quest1.dat`, `quest2.dat`, and `sampler1.dat`.
 
-The MIT license covers this library's code and documentation. Game database content keeps its owners' rights. Those fixtures are not in the published `files` list.
+The MIT license covers this library's code and documentation, not the games in `corpus/`. Those stay © Scott Adams and are not in the published `files` list.
