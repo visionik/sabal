@@ -148,10 +148,10 @@ const RELEASES: readonly Release[] = [
   { game: 'adv13', platform: 'Commodore 64', text: "*I'm on a Drawbridge", prefix: 'R13' },
   { game: 'adv14b', platform: 'Commodore 64', text: 'Yoyodyne', prefix: 'R' },
   { game: 'quest2', platform: 'Commodore 64', text: 'chem lab', prefix: 'R' },
-  { game: 'adv02', platform: 'Apple II', apple: 2 },
-  { game: 'adv06', platform: 'Apple II', apple: 6 },
   { game: 'adv02', platform: 'Atari 8-bit', lines: 2 },
   { game: 'adv06', platform: 'Atari 8-bit', lines: 6 },
+  { game: 'adv02', platform: 'Apple II', apple: 2 },
+  { game: 'adv06', platform: 'Apple II', apple: 6 },
   {
     // The pictures run in room order, from "It's too dark!" for room 0.
     game: 'adv13',
