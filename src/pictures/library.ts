@@ -19,6 +19,7 @@ import { draw, plausible, SPECTRUM_PALETTE, type BdpLayout, type Bitmap } from '
 import { ATARI_PALETTE, drawAtari, loadAtr, pictureData, pictureOffsets, type AtariDisk } from './atari.js';
 import { latin1, readD64 } from './d64.js';
 import { drawLines, linesAdventure, linesPicture, LINES_PALETTE, type Instruction } from './atari-lines.js';
+import { APPLE_PALETTE, drawApple, parseApple, readDos33 } from './apple.js';
 
 /** A file the host has read, such as a tape or disk image. */
 export interface PictureFile {
@@ -45,13 +46,15 @@ export interface Picture {
   readonly image: PictureImage;
 }
 
-export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64';
+export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64' | 'Apple II';
 
 /** The games, told apart by adventure number and room 1's text (two games share number 2, two share 14). */
 const GAMES = {
   adv01: [1, 'dismal swamp'],
   adv02: [2, 'Flat in london'],
   adv03: [3, ''],
+  adv04: [4, 'chapel'],
+  adv05: [5, "*I'm lying in a large brass bed"],
   adv06: [6, 'one man scoutship'],
   adv10: [10, 'Beach by ocean'],
   adv11: [11, 'small metal room'],
@@ -69,7 +72,7 @@ function gameOf(database: Database): GameId | undefined {
   );
 }
 
-type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease;
+type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease;
 
 interface SpectrumRelease extends Common {
   readonly platform: 'ZX Spectrum';
@@ -99,6 +102,12 @@ interface C64Release extends Common {
    * number: room 7's picture is `R007` or `R13007`, and `…000` is the dark.
    */
   readonly prefix: string;
+}
+
+interface AppleRelease extends Common {
+  readonly platform: 'Apple II';
+  /** The adventure number in the picture files' names: R0201 is game 2's room 1, B02019 its item 19. */
+  readonly apple: number;
 }
 
 interface Common {
@@ -139,6 +148,8 @@ const RELEASES: readonly Release[] = [
   { game: 'adv13', platform: 'Commodore 64', text: "*I'm on a Drawbridge", prefix: 'R13' },
   { game: 'adv14b', platform: 'Commodore 64', text: 'Yoyodyne', prefix: 'R' },
   { game: 'quest2', platform: 'Commodore 64', text: 'chem lab', prefix: 'R' },
+  { game: 'adv02', platform: 'Apple II', apple: 2 },
+  { game: 'adv06', platform: 'Apple II', apple: 6 },
   { game: 'adv02', platform: 'Atari 8-bit', lines: 2 },
   { game: 'adv06', platform: 'Atari 8-bit', lines: 6 },
   {
@@ -185,6 +196,7 @@ const RELEASES: readonly Release[] = [
       { message: /FEEL THE BOMB explode|triggering\s+the bomb/, picture: 25 }, // BOOM
     ],
   },
+  { game: 'adv03', platform: 'Apple II', apple: 3 },
   {
     // Only the rooms whose picture is unmistakable; the rest show none.
     game: 'adv13',
@@ -265,7 +277,7 @@ const RELEASES: readonly Release[] = [
 ];
 
 /** File names worth looking at. */
-export const PICTURE_FILES = /\.(tap|tzx|sna|atr|d64)$/i;
+export const PICTURE_FILES = /\.(tap|tzx|sna|atr|d64|dsk|do)$/i;
 
 interface Found {
   readonly release: Release;
@@ -441,6 +453,42 @@ function recognise({ name, data }: PictureFile): Found[] {
           // Atari pictures are drawn alone: overlays aren't supported for them yet.
           const { bitmap, colours } = drawAtari(pictures, offsets![n!]!, release.disk.old);
           return image(bitmap, colours.map((c) => ATARI_PALETTE[c]!), 3);
+        },
+      });
+    }
+  }
+
+  const disk = /\.(dsk|do)$/i.test(name) ? readDos33(data) : undefined;
+  if (disk) {
+    for (const release of RELEASES) {
+      if (!('apple' in release)) continue;
+      const nn = String(release.apple).padStart(2, '0');
+      // Rooms are R<nn><rr> (00 is the dark; 80 and up are close-ups); items are B<nn><iii>.
+      const pictures = new Map<number, Uint8Array>();
+      const items = new Map<number, number>();
+      for (const [file, body] of disk) {
+        const room = new RegExp(`^R${nn}(\\d\\d)$`).exec(file);
+        if (room && Number(room[1]) < 80) pictures.set(Number(room[1]), body);
+        const item = new RegExp(`^B${nn}(\\d{3})$`).exec(file);
+        if (item) {
+          pictures.set(1000 + Number(item[1]), body);
+          items.set(Number(item[1]), 1000 + Number(item[1]));
+        }
+      }
+      const rooms = [...pictures.keys()].filter((n) => n > 0 && n < 1000);
+      if (!rooms.length) continue;
+      hits.push({
+        release,
+        file: name,
+        rooms: Object.fromEntries(rooms.map((n) => [n, n])),
+        dark: pictures.has(0) ? 0 : undefined,
+        items,
+        byName: true,
+        render: (layers) => {
+          let screen: Uint8Array | undefined;
+          let picture: Bitmap | undefined;
+          for (const n of layers) ({ bitmap: picture, bytes: screen } = drawApple(parseApple(pictures.get(n)!), screen));
+          return image(picture!, APPLE_PALETTE, 3);
         },
       });
     }
