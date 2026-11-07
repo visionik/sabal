@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+SABAL can now show the pictures from the illustrated releases of the games (Scott Adams Graphic Adventures). Give a `PictureLibrary` the bytes of the player's own tapes, snapshots or disk images; `forGame(database)` then gives the picture for each room, objects drawn in, and close-ups for some messages, as indexed-colour images. ZX Spectrum, Atari 8-bit and Commodore 64 releases of seven games are supported. None of the pictures are included.
+
+`sabal/node` is a new entry point for Node programs: `loadPictures(dir)` reads a folder of picture files and `encodePng(image, scale)` writes a picture as a PNG. The main entry point still never touches the filesystem, so it keeps working in browsers.
+
 `Session.snapshot` tells a host which room the player is in, whether it is dark, and where each item is, so the host can draw a picture or a map of the game.
 
 SABAL now stands for Scott Adams Brass-lamp Adventure Library, after the lamp you carry into Adventureland. The package name and API are unchanged.
