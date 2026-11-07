@@ -338,3 +338,16 @@ test('clear response and picture no-op have distinct effects', () => {
   const s = start({rows:[row(7,0,[1,70,89,2],[param(999)])]});
   assert.deepEqual(s.submitCommand('do').events.map(e=>e.kind),['response','clear-response','response','command-prompt']);
 });
+
+test('snapshot reports the room, darkness and item locations, and is a copy', () => {
+  const database = loadDatabase(readFileSync(new URL('../corpus/adv01.dat', import.meta.url), 'utf8'));
+  const s = createSession(database, { random: () => 0 });
+  const first = s.snapshot;
+  assert.equal(first.room, database.header.startingRoom);
+  assert.equal(first.dark, false);
+  assert.deepEqual(first.itemLocations, database.items.map((i) => i.initialLocation));
+  assert.ok(Object.isFrozen(first) && Object.isFrozen(first.itemLocations));
+  s.submitCommand('CLIMB TREE');
+  assert.equal(s.snapshot.room, 28); // the top of the oak
+  assert.equal(first.room, database.header.startingRoom);
+});

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+`Session.snapshot` tells a host which room the player is in, whether it is dark, and where each item is, so the host can draw a picture or a map of the game.
+
 SABAL now stands for Scott Adams Brass-lamp Adventure Library, after the lamp you carry into Adventureland. The package name and API are unchanged.
 
 `npm install github:visionik/sabal` now builds `dist/` during install, so the package works when installed straight from GitHub. Before this, the install had no compiled code.
