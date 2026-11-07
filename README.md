@@ -195,11 +195,51 @@ Every chance test consumes one value. That includes chance 0 and chance 100, imp
 
 The default backend uses host `Math.random` entropy and a 32-bit unsigned left shift by six. It is not a C-library generator. The library does not promise seed-only replay or cross-platform native-generator replay. Restore does not rewind a draw stream.
 
+## Show the pictures from the illustrated releases
+
+Scott Adams's games were also sold with pictures, as Scott Adams Graphic Adventures (SAGA). SABAL can read those pictures from the player's own copies of some of the illustrated releases and tell you which one to show. The pictures are © Scott Adams and Adventure International. None are included, and SABAL doesn't fetch them.
+
+As with databases and saves, your program supplies the files. Give a `PictureLibrary` the bytes of any tapes, snapshots or disk images the player has; it recognises the games in them from their contents, whatever the file names. Then ask it for the game you're playing, by its database, and ask that for a picture after each room event:
+
+```js
+import { PictureLibrary } from 'sabal';
+
+const library = new PictureLibrary([{ name: 'S1ADVLND.TAP', data: tapeBytes }]);
+const pictures = library.forGame(database); // undefined if no file has this game's pictures
+const picture = pictures?.forState(session.snapshot); // the room's picture, with objects drawn in
+if (picture) show(picture.image); // { width, height, pixels, palette, scale }
+const closeUp = pictures?.forMessage(responseText); // e.g. the genie appearing
+```
+
+A picture is an indexed-colour image: one palette index per pixel, a palette of RGB triples, and `scale`, the whole-pixel enlargement that gives its usual size. Its `key` is stable, so you can skip showing the same picture twice in a row. There is no picture in the dark unless the release has one.
+
+| Game | Release | File | Pictures |
+| --- | --- | --- | --- |
+| Adventureland | ZX Spectrum | `.tap`, `.tzx` or `.sna` | every room, objects drawn in, three close-ups |
+| | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| Pirate Adventure | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| Secret Mission | ZX Spectrum | `.tap`, `.tzx` or `.sna` | every room, the dark, two close-ups |
+| Strange Odyssey | Atari 8-bit | picture disk `.atr` | 24 of 35 rooms, and the dark |
+| The Sorcerer of Claymorgue Castle | Commodore 64 | disk `.d64` | every room and the dark |
+| | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
+| Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms |
+| | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 33 of 40 rooms |
+| Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms |
+
+When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 releases name each picture after its room. The Atari releases store theirs in room order or list them in an index.
+
+### Node conveniences: `sabal/node`
+
+The core never touches the filesystem, so it runs in browsers too. Node programs can import `sabal/node` for two shortcuts: `loadPictures(dir)` reads the picture files in a folder into a `PictureLibrary`, and `encodePng(image, scale)` turns a picture into a PNG, enlarged without smoothing so the blocky originals stay sharp. `scale` multiplies the picture's usual size and can be any number, such as `1.5`.
+
+The Spectrum and Atari/C64 bitmap decoders are adapted from David Lodge's MIT-licensed `sagadraw.c` and `arledraw.c`, written with help from Paul David Doherty (see [`NOTICE`](NOTICE)). The line-drawing format of the first Atari releases is undocumented; it was worked out from the pictures and from the game's own drawing code.
+
 ## Stay inside the text database contract
 
 The engine implements the supplied clean-room specification: conditions 0 to 19, actions 0 to 89, both message ranges, diagnostics for actions 90 to 101, two-word bounded parsing, synonyms, directions, ALL, counters and registers, light, continuations, ordered automatic passes, deferred room redraws, and text saves. Only the specified first-person, default-lamp profile is offered.
 
-Compressed formats, binary machine formats, graphics, combat, historical lamp modes, second-person modes, ACP, and portable mid-turn snapshots are out of scope. So are filesystem access and sleeping.
+Compressed formats, binary machine formats (except for reading pictures), combat, historical lamp modes, second-person modes, ACP, and portable mid-turn snapshots are out of scope. So are filesystem access and sleeping in the core; `sabal/node` adds file reading for Node programs.
 
 Typed errors extend `SabalError`. `DatabaseError` means the database text is invalid. `SaveError` means the save text is invalid. `InvalidIndexError` means an index is out of range. `MissingArgumentError` means an action ran out of arguments. `SessionStateError` means the host called a method in the wrong status, omitted a string identifier, or sent unsupported input.
 
