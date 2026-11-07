@@ -20,6 +20,8 @@ import { ATARI_PALETTE, drawAtari, loadAtr, pictureData, pictureOffsets, type At
 import { latin1, readD64 } from './d64.js';
 import { drawLines, linesAdventure, linesPicture, LINES_PALETTE, type Instruction } from './atari-lines.js';
 import { APPLE_PALETTE, drawApple, parseApple, readDos33 } from './apple.js';
+import { drawPacked, packedPicture, type PackedPicture } from './apple-packed.js';
+import { crc32 } from './crc32.js';
 
 /** A file the host has read, such as a tape or disk image. */
 export interface PictureFile {
@@ -72,7 +74,7 @@ function gameOf(database: Database): GameId | undefined {
   );
 }
 
-type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease;
+type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease | ApplePackedRelease;
 
 interface SpectrumRelease extends Common {
   readonly platform: 'ZX Spectrum';
@@ -108,6 +110,12 @@ interface AppleRelease extends Common {
   readonly platform: 'Apple II';
   /** The adventure number in the picture files' names: R0201 is game 2's room 1, B02019 its item 19. */
   readonly apple: number;
+}
+
+interface ApplePackedRelease extends Common {
+  readonly platform: 'Apple II';
+  /** CRC-32 of the picture disk's index tables (track 0, sectors 1–6), to recognise it. */
+  readonly packed: number;
 }
 
 interface Common {
@@ -148,6 +156,8 @@ const RELEASES: readonly Release[] = [
   { game: 'adv13', platform: 'Commodore 64', text: "*I'm on a Drawbridge", prefix: 'R13' },
   { game: 'adv14b', platform: 'Commodore 64', text: 'Yoyodyne', prefix: 'R' },
   { game: 'quest2', platform: 'Commodore 64', text: 'chem lab', prefix: 'R' },
+  { game: 'adv04', platform: 'Apple II', packed: 0x453db81c },
+  { game: 'adv05', platform: 'Apple II', packed: 0xc7028e6f },
   { game: 'adv02', platform: 'Atari 8-bit', lines: 2 },
   { game: 'adv06', platform: 'Atari 8-bit', lines: 6 },
   { game: 'adv02', platform: 'Apple II', apple: 2 },
@@ -197,6 +207,8 @@ const RELEASES: readonly Release[] = [
     ],
   },
   { game: 'adv03', platform: 'Apple II', apple: 3 },
+  { game: 'adv01', platform: 'Apple II', packed: 0xd1a2b2a9 },
+  { game: 'adv13', platform: 'Apple II', packed: 0x884a5e2c },
   {
     // Only the rooms whose picture is unmistakable; the rest show none.
     game: 'adv13',
@@ -454,6 +466,38 @@ function recognise({ name, data }: PictureFile): Found[] {
           const { bitmap, colours } = drawAtari(pictures, offsets![n!]!, release.disk.old);
           return image(bitmap, colours.map((c) => ATARI_PALETTE[c]!), 3);
         },
+      });
+    }
+  }
+
+  if (/\.(dsk|do)$/i.test(name) && data.length === 143360) {
+    const tables = crc32(data.subarray(256, 7 * 256));
+    for (const release of RELEASES) {
+      if (!('packed' in release) || release.packed !== tables) continue;
+      const pictures = new Map<number, PackedPicture>();
+      const items = new Map<number, number>();
+      for (let n = 0; n < 100; n++) {
+        const room = packedPicture(data, 1, n);
+        if (room) pictures.set(n, room);
+      }
+      for (let n = 0; n < 256; n++) {
+        const item = packedPicture(data, 4, n);
+        if (item) {
+          pictures.set(1000 + n, item);
+          items.set(n, 1000 + n);
+        }
+      }
+      // Rooms 0–79; 0 is the dark, 80 and up are close-ups.
+      const rooms = [...pictures.keys()].filter((n) => n > 0 && n < 80);
+      if (!rooms.length) continue;
+      hits.push({
+        release,
+        file: name,
+        rooms: Object.fromEntries(rooms.map((n) => [n, n])),
+        dark: pictures.has(0) ? 0 : undefined,
+        items,
+        byName: false,
+        render: (layers) => image(drawPacked(layers.map((n) => pictures.get(n)!)), APPLE_PALETTE, 3),
       });
     }
   }
