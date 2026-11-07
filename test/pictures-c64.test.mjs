@@ -53,3 +53,16 @@ test('C64 pictures are named by room, and rooms described alike share one', () =
   const adventureland = loadDatabase(readFileSync(new URL('../corpus/adv01.dat', import.meta.url), 'utf8'));
   assert.equal(library.forGame(adventureland), undefined);
 });
+
+test('C64 item pictures are drawn over the room while the item is there', () => {
+  const disk = fakeD64([['R006', PICTURE], ['B031', PICTURE], ['B13005I', PICTURE], ['DATA', [...Buffer.from('chem lab')]]]);
+  const spider = new PictureLibrary([{ name: 'spider.d64', data: disk }]).forGame(
+    loadDatabase(readFileSync(new URL('../corpus/quest2.dat', import.meta.url), 'utf8')),
+  );
+  const locations = Array(73).fill(0);
+  assert.equal(spider.forState({ room: 6, dark: false, itemLocations: locations }).key, 'quest2:6');
+  locations[31] = 6; // Doctor Octopus is here
+  assert.equal(spider.forState({ room: 6, dark: false, itemLocations: locations }).key, 'quest2:6+1031');
+  locations[31] = 255; // carried items aren't drawn in the room
+  assert.equal(spider.forState({ room: 6, dark: false, itemLocations: locations }).key, 'quest2:6');
+});
