@@ -217,14 +217,18 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | --- | --- | --- | --- |
 | Adventureland | ZX Spectrum | `.tap`, `.tzx` or `.sna` | every room, objects drawn in, three close-ups |
 | | Atari 8-bit | picture disk `.atr` | every room and the dark |
-| Pirate Adventure | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
-| | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| | Apple II (version 2.2) | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
+| Pirate Adventure | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
 | Secret Mission | ZX Spectrum | `.tap`, `.tzx` or `.sna` | every room, the dark, two close-ups |
 | | Apple II (as Mission Impossible) | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
-| Strange Odyssey | Apple II | picture disk (side A) `.dsk` | 24 of 35 rooms, objects drawn in, and the dark |
-| | Atari 8-bit | picture disk `.atr` | 24 of 35 rooms, and the dark |
+| Voodoo Castle | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
+| The Count | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
+| Strange Odyssey | Atari 8-bit | picture disk `.atr` | 24 of 35 rooms, and the dark |
+| | Apple II | picture disk (side A) `.dsk` | 24 of 35 rooms, objects drawn in, and the dark |
 | The Sorcerer of Claymorgue Castle | Commodore 64 | disk `.d64` | every room, objects drawn in, and the dark |
 | | Atari 8-bit | picture disk `.atr` | every room and the dark |
+| | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
 | Savage Island, Part I | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 34 rooms |
 | Savage Island, Part II | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 30 rooms |
@@ -238,7 +242,7 @@ When the files hold more than one release of a game, the first listed for it win
 
 The core never touches the filesystem, so it runs in browsers too. Node programs can import `sabal/node` for two shortcuts: `loadPictures(dir)` reads the picture files in a folder into a `PictureLibrary`, and `encodePng(image, scale)` turns a picture into a PNG, enlarged without smoothing so the blocky originals stay sharp. `scale` multiplies the picture's usual size and can be any number, such as `1.5`.
 
-The Spectrum and Atari/C64 bitmap decoders are adapted from David Lodge's MIT-licensed `sagadraw.c` and `arledraw.c`, written with help from Paul David Doherty (see [`NOTICE`](NOTICE)). The line-drawing formats of the first Atari and Apple II releases are undocumented; they were worked out from the pictures and from the games' own drawing code. Apple II colours are produced the way a colour monitor shows them, from how the lit pixels are spaced. Later Apple II releases (Adventureland 2.2, Voodoo Castle, The Count, Claymorgue) keep their pictures in another, compressed, format that isn't read yet.
+The Spectrum and Atari/C64 bitmap decoders are adapted from David Lodge's MIT-licensed `sagadraw.c` and `arledraw.c`, written with help from Paul David Doherty (see [`NOTICE`](NOTICE)). The line-drawing formats of the first Atari and Apple II releases are undocumented; they were worked out from the pictures and from the games' own drawing code. Apple II colours are produced the way a colour monitor shows them, from how the lit pixels are spaced. Later Apple II releases (Adventureland 2.2, Voodoo Castle, The Count, Claymorgue) keep their pictures packed straight on the disk, with tables on track 0 saying where each lies; those are read too, recognised by a checksum of the tables.
 
 ## Stay inside the text database contract
 
