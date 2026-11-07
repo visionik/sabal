@@ -22,6 +22,15 @@ export interface Options {
    * Values must be nonnegative safe integers divisible by four. */
   readonly random?: () => number;
 }
+/** Where things are: see {@link Session.snapshot}. */
+export interface Snapshot {
+  /** The player's room number. */
+  readonly room: number;
+  /** True when the room is dark and the player has no light. */
+  readonly dark: boolean;
+  /** Each item's room, by item number; 255 means the player is carrying it, 0 that it is nowhere. */
+  readonly itemLocations: readonly number[];
+}
 type Flow<T = void> = Generator<Event, T, void>;
 const directions = ['North', 'South', 'East', 'West', 'Up', 'Down'];
 const prompt = '\nTell me what to do ? ';
@@ -56,6 +65,13 @@ export class Session {
     this.initialResult = this.advance();
   }
   get status(): Status { return this.currentStatus; }
+  /**
+   * Where the player and the items are right now, for hosts that draw pictures or maps.
+   * Read-only: a copy taken at the moment you ask.
+   */
+  get snapshot(): Snapshot {
+    return Object.freeze({ room: this.currentRoom, dark: this.dark(), itemLocations: Object.freeze([...this.locations]) });
+  }
   submitCommand(input: string): StepResult {
     this.require('need-command');
     if (/[^\x20-\x7e\t\r\n]/.test(input)) throw new SessionStateError('Only printable ASCII input and token whitespace are supported.');
