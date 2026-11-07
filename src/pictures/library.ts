@@ -237,6 +237,8 @@ interface Found {
   /** Picture number for each room, and for the dark. */
   readonly rooms: Readonly<Record<number, number>>;
   readonly dark?: number;
+  /** Pictures of items, drawn over the room while the item is in it: item number → picture number. */
+  readonly items?: ReadonlyMap<number, number>;
   /** Whether rooms without a picture may share one with a room described the same way. */
   readonly byName: boolean;
   /** Draw pictures one over another. */
@@ -272,6 +274,9 @@ export class GamePictures {
     const overlays = (this.found.release.overlays ?? [])
       .filter((o) => o.room === snapshot.room && o.items.some((i) => snapshot.itemLocations[i] === snapshot.room))
       .map((o) => o.picture);
+    for (const [item, picture] of this.found.items ?? []) {
+      if (snapshot.itemLocations[item] === snapshot.room) overlays.push(picture);
+    }
     return this.picture([n, ...overlays]);
   }
 
@@ -410,21 +415,34 @@ function recognise({ name, data }: PictureFile): Found[] {
     const text = [...files.values()].map(latin1).join('\0');
     for (const release of RELEASES) {
       if (release.platform !== 'Commodore 64' || !text.includes(release.text)) continue;
+      // Room pictures are R<n>; item pictures B<n> (Claymorgue: B13<n>R, with B13<n>I its inventory icon).
       const pictures = new Map<number, Uint8Array>();
+      const itemPrefix = 'B' + release.prefix.slice(1);
+      const items = new Map<number, number>();
       for (const [file, body] of files) {
-        const match = file.startsWith(release.prefix) && /^\d{3}$/.exec(file.slice(release.prefix.length));
-        if (match) pictures.set(Number(match[0]), body);
+        const room = file.startsWith(release.prefix) && /^\d{3}$/.exec(file.slice(release.prefix.length));
+        if (room) pictures.set(Number(room[0]), body);
+        const item = file.startsWith(itemPrefix) && /^(\d{3})R?$/.exec(file.slice(itemPrefix.length));
+        if (item) {
+          // Item pictures are numbered from 1000 up, apart from the rooms'.
+          pictures.set(1000 + Number(item[1]), body);
+          items.set(Number(item[1]), 1000 + Number(item[1]));
+        }
       }
-      if (!pictures.size) continue;
+      const rooms = [...pictures.keys()].filter((n) => n > 0 && n < 1000);
+      if (!rooms.length) continue;
       hits.push({
         release,
         file: name,
-        rooms: Object.fromEntries([...pictures.keys()].filter((n) => n > 0).map((n) => [n, n])),
+        rooms: Object.fromEntries(rooms.map((n) => [n, n])),
         dark: pictures.has(0) ? 0 : undefined,
+        items,
         byName: true,
-        render: ([n]) => {
+        render: ([n, ...overlays]) => {
           // The C64 releases use the Atari's picture format and colour numbers.
-          const { bitmap, colours } = drawAtari(pictures.get(n!)!, 0);
+          // Items are drawn over the room in the room's colours, as the machine would.
+          let { bitmap, colours } = drawAtari(pictures.get(n!)!, 0);
+          for (const o of overlays) bitmap = drawAtari(pictures.get(o)!, 0, false, bitmap).bitmap;
           return image(bitmap, colours.map((c) => ATARI_PALETTE[c]!), 3);
         },
       });

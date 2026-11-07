@@ -220,14 +220,14 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | Pirate Adventure | Atari 8-bit | picture disk `.atr` | every room and the dark |
 | Secret Mission | ZX Spectrum | `.tap`, `.tzx` or `.sna` | every room, the dark, two close-ups |
 | Strange Odyssey | Atari 8-bit | picture disk `.atr` | 24 of 35 rooms, and the dark |
-| The Sorcerer of Claymorgue Castle | Commodore 64 | disk `.d64` | every room and the dark |
+| The Sorcerer of Claymorgue Castle | Commodore 64 | disk `.d64` | every room, objects drawn in, and the dark |
 | | Atari 8-bit | picture disk `.atr` | every room and the dark |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
-| Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms |
+| Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms, objects and villains drawn in |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 33 of 40 rooms |
-| Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms |
+| Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms, objects drawn in |
 
-When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 releases name each picture after its room. The Atari releases store theirs in room order or list them in an index.
+When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 releases name each picture after its room or item; an item's picture is drawn over the room while the item is there. The Atari releases store theirs in room order or list them in an index.
 
 ### Node conveniences: `sabal/node`
 

@@ -70,8 +70,11 @@ export function pictureOffsets(data: Uint8Array, disk: AtariDisk): number[] {
   return offsets;
 }
 
-/** Draw one picture: pixels index `colours`, which are Atari colour numbers. */
-export function drawAtari(data: Uint8Array, offset: number, old = false): { bitmap: Bitmap; colours: number[] } {
+/**
+ * Draw one picture: pixels index `colours`, which are Atari colour numbers.
+ * With `base`, the picture is drawn over a copy of it (an object over its room).
+ */
+export function drawAtari(data: Uint8Array, offset: number, old = false, base?: Bitmap): { bitmap: Bitmap; colours: number[] } {
   const end = offset + (data[offset]! | (data[offset + 1]! << 8));
   const left = data[offset + 2]! - 3; // in 8-pixel columns, after a 3-column margin
   const top = data[offset + 3]!;
@@ -79,7 +82,7 @@ export function drawAtari(data: Uint8Array, offset: number, old = false): { bitm
   const bottom = data[offset + 5]! - (old ? 2 : 0);
   // Colour registers 1-3, then the background.
   const colours = [data[offset + 9]!, data[offset + 6]!, data[offset + 7]!, data[offset + 8]!];
-  const pixels = new Uint8Array(ATARI_WIDTH * ATARI_HEIGHT);
+  const pixels = base ? Uint8Array.from(base.pixels) : new Uint8Array(ATARI_WIDTH * ATARI_HEIGHT);
   let x = left * 8;
   let y = top;
 
