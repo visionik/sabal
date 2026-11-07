@@ -79,3 +79,23 @@ test('sabal/node reads a folder and writes indexed PNGs at any scale', () => {
   const raw = inflateSync(png.subarray(idat + 4, idat + 4 + png.readUInt32BE(idat - 4)));
   assert.equal(raw[0], 0, 'filter byte');
 });
+
+test('version 3 pictures: table entries are relative, colours use the Spectrum attribute layout, repeats copy the last colour', () => {
+  const m = new Uint8Array(0x10000);
+  const charset = 0x9000;
+  m.fill(0xff, charset + 8, charset + 16); // character 1 is solid
+  const table = charset + 0x800;
+  const picture = table + 0x200;
+  const entry = picture - table - 0x100; // relative to the table, plus 0x100
+  m[table] = entry & 0xff;
+  m[table + 1] = entry >> 8;
+  // 3x1 cells at column 0 (no 4-column offset in version 3): solid, blank, solid.
+  // Colours: bright red ink on blue paper (0x40 | 1 << 3 | 2), then that colour twice more (0x82).
+  m.set([3, 1, 0, 0, 0x01, 0x00, 0x01, 0x4a, 0x82], picture);
+  const bmp = draw(m, { charset, count: 1, version: 3 }, 0);
+  const px = (x) => bmp.pixels[x];
+  assert.equal(px(0), 10, 'bright red ink');
+  assert.equal(px(8), 9, 'bright blue paper, repeated from the first cell');
+  assert.equal(px(16), 10);
+  assert.equal(px(24), 0, 'nothing beyond the picture');
+});

@@ -134,13 +134,24 @@ export function draw(mem: Memory, layout: BdpLayout, n: number, base?: Bitmap): 
   // Colours: one attribute per cell, run-length encoded.
   const pen = new Uint8Array(cells);
   const paper = new Uint8Array(cells);
+  let last = 0;
   for (let c = 0; c < cells; ) {
     const data = read();
-    const [count, colour] = data & 0x80 ? [(data & 0x7f) + 1, read()] : [1, data];
+    // From version 3, a repeat count repeats the colour before it rather than the next byte.
+    const [count, colour] =
+      data & 0x80 ? (layout.version >= 3 ? [data & 0x7f, last] : [(data & 0x7f) + 1, read()]) : [1, data];
+    last = colour;
     for (let k = 0; k < count && c < cells; k++, c++) {
-      const bright = colour & 0x08 || layout.version === 1 ? 8 : 0;
-      paper[c] = (colour & 0x07) + bright;
-      pen[c] = ((colour & 0x70) >> 4) + bright;
+      if (layout.version >= 3) {
+        // The Spectrum's own attribute layout: ink in bits 0-2, paper in 3-5, bright in 6.
+        const bright = colour & 0x40 ? 8 : 0;
+        pen[c] = (colour & 0x07) + bright;
+        paper[c] = ((colour >> 3) & 0x07) + bright;
+      } else {
+        const bright = colour & 0x08 || layout.version === 1 ? 8 : 0;
+        paper[c] = (colour & 0x07) + bright;
+        pen[c] = ((colour & 0x70) >> 4) + bright;
+      }
     }
   }
 

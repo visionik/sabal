@@ -53,6 +53,8 @@ const GAMES = {
   adv02: [2, 'Flat in london'],
   adv03: [3, ''],
   adv06: [6, 'one man scoutship'],
+  adv10: [10, 'Beach by ocean'],
+  adv11: [11, 'small metal room'],
   adv13: [13, 'field'],
   adv14b: [14, 'Yoyodyne office'],
   quest2: [2, 'small deserted Office'],
@@ -205,6 +207,40 @@ const RELEASES: readonly Release[] = [
       23: 19, // box
       28: 23, // entryway
       29: 24, // dragon's lair
+    },
+  },
+  {
+    // Only the rooms whose picture is unmistakable; the rest show none.
+    game: 'adv10',
+    platform: 'ZX Spectrum',
+    text: 'Beach by ocean, a cliff towers',
+    layout: { charset: 0x96f4, count: 37, version: 3 },
+    rooms: {
+      1: 0, // the beach with the great stone head (room 10 is on top of it)
+      2: 1, // the cliff towering over the west end
+      5: 5, // shallow tidepool
+      6: 6, // the extinct volcano's rim
+      7: 7, // the plain, with the volcano
+      ...same([9, 22], 10), // metal lined tunnel
+      10: 11, // on top of the head, the atoll offshore
+      12: 15, // the lake
+      14: 16, // on the raft
+      15: 20, // the small atoll
+      19: 23, // top of a palm tree
+    },
+  },
+  {
+    // Only the rooms whose picture is unmistakable; the rest show none.
+    game: 'adv11',
+    platform: 'ZX Spectrum',
+    text: 'metal lifeboat hangar',
+    layout: { charset: 0x97b5, count: 21, version: 3 },
+    rooms: {
+      ...same([3, 5, 6, 7, 9, 19, 21, 25], 4), // metal lined tunnel
+      16: 12, // the treadmill
+      23: 17, // metal dormitory
+      24: 5, // lifeboat hangar, the shuttle in it
+      27: 19, // porcelain machinery
     },
   },
   {
