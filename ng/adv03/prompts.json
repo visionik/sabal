@@ -1,0 +1,28 @@
+{
+  "game": "Secret Mission",
+  "rooms": {
+    "2": "A spare briefing room in a secret 1980s nuclear facility: smooth walls painted institutional green, a clean pale floor, a closed blue steel door on the left wall, fluorescent light, empty and clinical.",
+    "3": "A long sloping corridor in a secret nuclear facility: speckled grey concrete walls with dark recessed doorways on both sides, ceiling lamps hanging on cords, the floor sloping down to a lit blue doorway far ahead, cold and echoing.",
+    "4": "A grey interrogation room: speckled concrete walls, a deep blue floor, a single red-seated metal chair bolted to the floor, and a tall black cabinet of sinister apparatus with coils, dials and lights aimed at the chair, harsh overhead light.",
+    "5": "Seen from a grey chair you are strapped into: a large black machine looms right in front, its green screen glowing, a row of four round buttons below it, red, white, blue and yellow, each with a small keyhole underneath, menacing.",
+    "6": "A twisting white hallway: smooth gleaming white walls curving away out of sight, green trim along the floor, closed white doors set into the curve, soft clinical light, futuristic.",
+    "7": "A twisting yellow hallway: smooth glossy yellow walls curving away out of sight, closed yellow doors set into the curve, soft warm light, futuristic.",
+    "8": "A twisting blue hallway: smooth glossy blue walls curving away out of sight, closed doors set into the curve, cool light, futuristic.",
+    "9": "A white room in a secure facility: a stark white chamber, a closed white door in the far wall with a red security TV camera mounted over it, a cable running to a small green junction box, a green-framed bench in the foreground.",
+    "10": "A yellow room in a secure facility: a stark yellow chamber, a closed yellow door in the far wall with a red security TV camera mounted over it, a cable running to a small green junction box, a green-framed bench in the foreground.",
+    "11": "A blue room in a secure facility: a stark blue chamber, a closed blue door in the far wall with a red security TV camera mounted over it, a cable running to a small green junction box, a green-framed bench in the foreground.",
+    "12": "Maintenance room 1: a cluttered workshop with a workbench and vice, tools hanging on the wall, a red toolbox, pipes, a ladder leaning in on the left, bags of rubbish in the corner.",
+    "13": "A large white visitors' room: two long green upholstered couches facing each other across a low glass coffee table, a big plate-glass window high on the far wall with a fine grid of embedded red wires, a mustard yellow carpet, bright daylight.",
+    "14": "A yellow corridor: glossy yellow walls, a black-and-white checkerboard tile floor leading to a closed red door at the end, a small green control panel on the right wall.",
+    "15": "A blue anteroom: deep blue painted walls, a plain steel door with a glass panel in the far wall beneath a blank red sign plate, a small yellow button beside the door, cool light.",
+    "16": "A ledge outside a window high above a reactor core: looking down from a narrow concrete ledge into a deep pit glowing magenta and white with the reactor's light, a red brick rim around it, dark foliage on either side.",
+    "17": "Maintenance room 2: crowded metal shelves full of cleaning supplies, bottles, boxes and cans, a mop on the wall, pipes with valves, a white enamel sink on the right, pale cyan walls, a bare bulb.",
+    "18": "A projectionist's room: dark blue walls, a row of green cinema seats in the foreground, and a black film projector with two big reels on a tall tripod stand on the right, a beam of light.",
+    "19": "The control room surrounding a reactor core: walls packed with dials, gauges, switches and blinking lights in yellow, red and blue, a big control console in the middle, a doorway on the right, tense atmosphere.",
+    "20": "A staff break room: pale cyan walls, two blue armchairs facing each other across a low table with coffee cups on it, a framed painting of a countryside cottage on the far wall, a green carpet.",
+    "21": "The reactor core: a hot glowing chamber of yellow and white light, a red-hot floor plate, and a curtain of black control rods hanging down from the ceiling over it, warning lamps along the top.",
+    "22": "A small viewing room: plain green painted walls and a small square riveted porthole of thick glass in the far wall, looking into a glowing chamber beyond.",
+    "23": "A storage room: magenta painted walls, a big blue steel vat of heavy water with pipes and valves above it and a red pipe running down to the floor, its label plate blank."
+  },
+  "items": {}
+}

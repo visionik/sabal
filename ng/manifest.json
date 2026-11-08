@@ -5,6 +5,803 @@
  ],
  "base": "https://raw.githubusercontent.com/visionik/sabal/main/ng/",
  "games": {
+  "adv01": {
+   "rooms": {
+    "1": "adv01/room-1.png",
+    "2": "adv01/room-2.png",
+    "3": "adv01/room-3.png",
+    "4": "adv01/room-4.png",
+    "5": "adv01/room-5.png",
+    "6": "adv01/room-6.png",
+    "7": "adv01/room-7.png",
+    "8": "adv01/room-8.png",
+    "9": "adv01/room-9.png",
+    "10": "adv01/room-10.png",
+    "11": "adv01/room-11.png",
+    "12": "adv01/room-12.png",
+    "18": "adv01/room-18.png",
+    "19": "adv01/room-19.png",
+    "20": "adv01/room-20.png",
+    "21": "adv01/room-21.png",
+    "22": "adv01/room-22.png",
+    "23": "adv01/room-23.png",
+    "24": "adv01/room-24.png",
+    "25": "adv01/room-25.png",
+    "26": "adv01/room-26.png",
+    "27": "adv01/room-27.png",
+    "28": "adv01/room-28.png",
+    "29": "adv01/room-29.png",
+    "30": "adv01/room-30.png",
+    "31": "adv01/room-31.png",
+    "32": "adv01/room-32.png",
+    "33": "adv01/room-33.png"
+   },
+   "items": {
+    "17": {
+     "file": "adv01/item-17.png",
+     "default": [
+      0.298,
+      0.271,
+      0.122,
+      0.479
+     ]
+    },
+    "25": {
+     "file": "adv01/item-25.png",
+     "default": [
+      0.548,
+      0.425,
+      0.122,
+      0.575
+     ]
+    },
+    "27": {
+     "file": "adv01/item-27.png",
+     "default": [
+      0.445,
+      0.404,
+      0.477,
+      0.335
+     ]
+    },
+    "29": {
+     "file": "adv01/item-29.png",
+     "default": [
+      0.575,
+      0.642,
+      0.163,
+      0.192
+     ]
+    },
+    "35": {
+     "file": "adv01/item-35.png",
+     "default": [
+      0.432,
+      0.056,
+      0.147,
+      0.527
+     ]
+    },
+    "39": {
+     "file": "adv01/item-39.png",
+     "default": [
+      0.548,
+      0.425,
+      0.122,
+      0.575
+     ]
+    },
+    "43": {
+     "file": "adv01/item-43.png",
+     "default": [
+      0.548,
+      0.425,
+      0.122,
+      0.575
+     ]
+    }
+   }
+  },
+  "adv02": {
+   "rooms": {
+    "1": "adv02/room-1.png",
+    "2": "adv02/room-2.png",
+    "3": "adv02/room-3.png",
+    "4": "adv02/room-4.png",
+    "5": "adv02/room-5.png",
+    "6": "adv02/room-6.png",
+    "7": "adv02/room-7.png",
+    "8": "adv02/room-8.png",
+    "9": "adv02/room-9.png",
+    "10": "adv02/room-10.png",
+    "11": "adv02/room-11.png",
+    "14": "adv02/room-14.png",
+    "15": "adv02/room-15.png",
+    "16": "adv02/room-16.png",
+    "17": "adv02/room-17.png",
+    "18": "adv02/room-18.png",
+    "20": "adv02/room-20.png",
+    "21": "adv02/room-21.png",
+    "22": "adv02/room-22.png",
+    "23": "adv02/room-23.png",
+    "24": "adv02/room-24.png",
+    "25": "adv02/room-25.png",
+    "26": "adv02/room-26.png"
+   }
+  },
+  "adv03": {
+   "rooms": {
+    "2": "adv03/room-2.png",
+    "3": "adv03/room-3.png",
+    "4": "adv03/room-4.png",
+    "5": "adv03/room-5.png",
+    "6": "adv03/room-6.png",
+    "7": "adv03/room-7.png",
+    "8": "adv03/room-8.png",
+    "9": "adv03/room-9.png",
+    "10": "adv03/room-10.png",
+    "11": "adv03/room-11.png",
+    "12": "adv03/room-12.png",
+    "13": "adv03/room-13.png",
+    "14": "adv03/room-14.png",
+    "15": "adv03/room-15.png",
+    "16": "adv03/room-16.png",
+    "17": "adv03/room-17.png",
+    "18": "adv03/room-18.png",
+    "19": "adv03/room-19.png",
+    "20": "adv03/room-20.png",
+    "21": "adv03/room-21.png",
+    "22": "adv03/room-22.png",
+    "23": "adv03/room-23.png"
+   }
+  },
+  "adv04": {
+   "rooms": {
+    "1": "adv04/room-1.png",
+    "2": "adv04/room-2.png",
+    "3": "adv04/room-3.png",
+    "4": "adv04/room-4.png",
+    "5": "adv04/room-5.png",
+    "6": "adv04/room-6.png",
+    "7": "adv04/room-7.png",
+    "8": "adv04/room-8.png",
+    "9": "adv04/room-9.png",
+    "10": "adv04/room-10.png",
+    "11": "adv04/room-11.png",
+    "12": "adv04/room-12.png",
+    "13": "adv04/room-13.png",
+    "14": "adv04/room-14.png",
+    "15": "adv04/room-15.png",
+    "16": "adv04/room-16.png",
+    "17": "adv04/room-17.png",
+    "18": "adv04/room-18.png",
+    "19": "adv04/room-19.png",
+    "20": "adv04/room-20.png",
+    "21": "adv04/room-21.png",
+    "22": "adv04/room-22.png",
+    "23": "adv04/room-23.png",
+    "24": "adv04/room-24.png",
+    "25": "adv04/room-25.png"
+   },
+   "items": {
+    "6": {
+     "file": "adv04/item-6.png",
+     "default": [
+      0.168,
+      0.652,
+      0.492,
+      0.273
+     ],
+     "at": {
+      "3": [
+       0.18,
+       0.666,
+       0.455,
+       0.259
+      ],
+      "10": [
+       0.164,
+       0.652,
+       0.497,
+       0.273
+      ],
+      "22": [
+       0.164,
+       0.652,
+       0.497,
+       0.273
+      ]
+     }
+    },
+    "10": {
+     "file": "adv04/item-10.png",
+     "default": [
+      0.146,
+      0,
+      0.687,
+      0.863
+     ],
+     "at": {
+      "6": [
+       0.142,
+       0,
+       0.692,
+       0.863
+      ],
+      "9": [
+       0.223,
+       0.072,
+       0.576,
+       0.791
+      ],
+      "10": [
+       0.142,
+       0,
+       0.692,
+       0.863
+      ],
+      "22": [
+       0.142,
+       0,
+       0.692,
+       0.863
+      ]
+     }
+    },
+    "13": {
+     "file": "adv04/item-13.png",
+     "default": [
+      0.326,
+      0.252,
+      0.427,
+      0.273
+     ],
+     "at": {
+      "6": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ],
+      "10": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ],
+      "15": [
+       0.342,
+       0.266,
+       0.409,
+       0.259
+      ],
+      "19": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ],
+      "21": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ],
+      "22": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ],
+      "23": [
+       0.322,
+       0.252,
+       0.432,
+       0.273
+      ]
+     }
+    },
+    "17": {
+     "file": "adv04/item-17.png",
+     "default": [
+      0.207,
+      0.428,
+      0.59,
+      0.172
+     ],
+     "at": {
+      "1": [
+       0.221,
+       0.45,
+       0.557,
+       0.144
+      ],
+      "2": [
+       0.208,
+       0.428,
+       0.585,
+       0.172
+      ],
+      "6": [
+       0.203,
+       0.428,
+       0.594,
+       0.172
+      ],
+      "10": [
+       0.203,
+       0.428,
+       0.594,
+       0.172
+      ],
+      "14": [
+       0.208,
+       0.428,
+       0.585,
+       0.172
+      ],
+      "22": [
+       0.208,
+       0.428,
+       0.585,
+       0.172
+      ],
+      "23": [
+       0.203,
+       0.428,
+       0.594,
+       0.172
+      ]
+     }
+    },
+    "23": {
+     "file": "adv04/item-23.png",
+     "default": [
+      0.203,
+      0.097,
+      0.594,
+      0.503
+     ],
+     "at": {
+      "2": [
+       0.207,
+       0.097,
+       0.59,
+       0.503
+      ],
+      "6": [
+       0.219,
+       0.104,
+       0.548,
+       0.496
+      ]
+     }
+    },
+    "28": {
+     "file": "adv04/item-28.png",
+     "default": [
+      0.268,
+      0.006,
+      0.492,
+      0.819
+     ],
+     "at": {
+      "1": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ],
+      "4": [
+       0.285,
+       0.034,
+       0.469,
+       0.791
+      ],
+      "6": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ],
+      "10": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ],
+      "19": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ],
+      "22": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ],
+      "23": [
+       0.264,
+       0.006,
+       0.497,
+       0.819
+      ]
+     }
+    },
+    "31": {
+     "file": "adv04/item-31.png",
+     "default": [
+      0.641,
+      0,
+      0.297,
+      0.575
+     ],
+     "at": {
+      "6": [
+       0.637,
+       0,
+       0.302,
+       0.575
+      ],
+      "8": [
+       0.659,
+       0,
+       0.26,
+       0.569
+      ],
+      "10": [
+       0.637,
+       0,
+       0.302,
+       0.575
+      ],
+      "21": [
+       0.637,
+       0,
+       0.302,
+       0.575
+      ],
+      "22": [
+       0.637,
+       0,
+       0.302,
+       0.575
+      ],
+      "23": [
+       0.637,
+       0,
+       0.302,
+       0.575
+      ],
+      "24": [
+       0.641,
+       0,
+       0.297,
+       0.569
+      ]
+     }
+    },
+    "34": {
+     "file": "adv04/item-34.png",
+     "default": [
+      0.362,
+      0.097,
+      0.33,
+      0.503
+     ],
+     "at": {
+      "1": [
+       0.358,
+       0.097,
+       0.334,
+       0.503
+      ],
+      "5": [
+       0.373,
+       0.097,
+       0.293,
+       0.503
+      ],
+      "6": [
+       0.358,
+       0.097,
+       0.334,
+       0.503
+      ],
+      "10": [
+       0.358,
+       0.097,
+       0.334,
+       0.503
+      ],
+      "23": [
+       0.358,
+       0.097,
+       0.334,
+       0.503
+      ]
+     }
+    },
+    "35": {
+     "file": "adv04/item-35.png",
+     "default": [
+      0.163,
+      0.041,
+      0.752,
+      0.834
+     ],
+     "at": {
+      "6": [
+       0.159,
+       0.041,
+       0.757,
+       0.834
+      ],
+      "10": [
+       0.159,
+       0.041,
+       0.757,
+       0.834
+      ],
+      "18": [
+       0.184,
+       0.041,
+       0.724,
+       0.834
+      ],
+      "22": [
+       0.159,
+       0.041,
+       0.757,
+       0.834
+      ],
+      "23": [
+       0.159,
+       0.041,
+       0.757,
+       0.834
+      ],
+      "25": [
+       0.159,
+       0.041,
+       0.757,
+       0.834
+      ]
+     }
+    },
+    "37": {
+     "file": "adv04/item-37.png",
+     "default": [
+      0.362,
+      0.083,
+      0.33,
+      0.518
+     ],
+     "at": {
+      "1": [
+       0.358,
+       0.083,
+       0.334,
+       0.518
+      ],
+      "5": [
+       0.373,
+       0.09,
+       0.293,
+       0.51
+      ],
+      "6": [
+       0.358,
+       0.083,
+       0.334,
+       0.518
+      ],
+      "10": [
+       0.358,
+       0.083,
+       0.334,
+       0.518
+      ],
+      "23": [
+       0.358,
+       0.083,
+       0.334,
+       0.518
+      ]
+     }
+    },
+    "41": {
+     "file": "adv04/item-41.png",
+     "default": [
+      0.291,
+      0.379,
+      0.297,
+      0.546
+     ],
+     "at": {
+      "1": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ],
+      "6": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ],
+      "10": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ],
+      "13": [
+       0.312,
+       0.386,
+       0.269,
+       0.539
+      ],
+      "19": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ],
+      "22": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ],
+      "23": [
+       0.287,
+       0.379,
+       0.302,
+       0.546
+      ]
+     }
+    },
+    "48": {
+     "file": "adv04/item-48.png",
+     "default": [
+      0.366,
+      0.686,
+      0.297,
+      0.201
+     ],
+     "at": {
+      "1": [
+       0.362,
+       0.686,
+       0.302,
+       0.201
+      ],
+      "6": [
+       0.362,
+       0.686,
+       0.302,
+       0.201
+      ],
+      "14": [
+       0.379,
+       0.686,
+       0.279,
+       0.201
+      ],
+      "21": [
+       0.362,
+       0.686,
+       0.302,
+       0.201
+      ],
+      "22": [
+       0.362,
+       0.686,
+       0.302,
+       0.201
+      ],
+      "23": [
+       0.362,
+       0.686,
+       0.302,
+       0.201
+      ]
+     }
+    },
+    "50": {
+     "file": "adv04/item-50.png",
+     "default": [
+      0.326,
+      0.638,
+      0.427,
+      0.288
+     ],
+     "at": {
+      "10": [
+       0.322,
+       0.638,
+       0.432,
+       0.288
+      ],
+      "12": [
+       0.322,
+       0.638,
+       0.432,
+       0.288
+      ],
+      "14": [
+       0.37,
+       0.673,
+       0.353,
+       0.252
+      ],
+      "22": [
+       0.322,
+       0.638,
+       0.432,
+       0.288
+      ]
+     }
+    },
+    "65": {
+     "file": "adv04/item-65.png",
+     "default": [
+      0.207,
+      0.236,
+      0.59,
+      0.489
+     ],
+     "at": {
+      "1": [
+       0.244,
+       0.258,
+       0.548,
+       0.467
+      ],
+      "2": [
+       0.208,
+       0.236,
+       0.585,
+       0.489
+      ],
+      "6": [
+       0.203,
+       0.236,
+       0.594,
+       0.489
+      ],
+      "10": [
+       0.203,
+       0.236,
+       0.594,
+       0.489
+      ],
+      "19": [
+       0.203,
+       0.236,
+       0.594,
+       0.489
+      ],
+      "22": [
+       0.203,
+       0.236,
+       0.594,
+       0.489
+      ],
+      "23": [
+       0.203,
+       0.236,
+       0.594,
+       0.489
+      ]
+     }
+    }
+   }
+  },
   "adv08": {
    "rooms": {
     "1": "adv08/room-1.png",
@@ -551,9 +1348,903 @@
      ]
     }
    }
+  },
+  "adv14a": {
+   "rooms": {
+    "1": "adv14a/room-1.png",
+    "2": "adv14a/room-2.png",
+    "3": "adv14a/room-3.png",
+    "4": "adv14a/room-4.png",
+    "5": "adv14a/room-5.png",
+    "6": "adv14a/room-6.png",
+    "7": "adv14a/room-7.png",
+    "10": "adv14a/room-10.png",
+    "11": "adv14a/room-11.png",
+    "12": "adv14a/room-12.png",
+    "13": "adv14a/room-13.png",
+    "15": "adv14a/room-15.png",
+    "16": "adv14a/room-16.png",
+    "17": "adv14a/room-17.png",
+    "18": "adv14a/room-18.png",
+    "19": "adv14a/room-19.png",
+    "20": "adv14a/room-20.png",
+    "21": "adv14a/room-21.png",
+    "22": "adv14a/room-22.png",
+    "23": "adv14a/room-23.png",
+    "24": "adv14a/room-24.png"
+   }
+  },
+  "adv14b": {
+   "rooms": {
+    "1": "adv14b/room-1.png",
+    "2": "adv14b/room-2.png",
+    "3": "adv14b/room-3.png",
+    "4": "adv14b/room-4.png",
+    "5": "adv14b/room-5.png",
+    "6": "adv14b/room-6.png",
+    "8": "adv14b/room-8.png",
+    "9": "adv14b/room-9.png",
+    "11": "adv14b/room-11.png",
+    "12": "adv14b/room-12.png",
+    "13": "adv14b/room-13.png",
+    "14": "adv14b/room-14.png",
+    "15": "adv14b/room-15.png",
+    "16": "adv14b/room-16.png",
+    "17": "adv14b/room-17.png",
+    "18": "adv14b/room-18.png",
+    "19": "adv14b/room-19.png",
+    "20": "adv14b/room-20.png",
+    "21": "adv14b/room-21.png",
+    "22": "adv14b/room-22.png",
+    "23": "adv14b/room-23.png",
+    "24": "adv14b/room-24.png",
+    "25": "adv14b/room-25.png",
+    "26": "adv14b/room-26.png",
+    "28": "adv14b/room-28.png",
+    "29": "adv14b/room-29.png",
+    "35": "adv14b/room-35.png"
+   },
+   "items": {
+    "4": {
+     "file": "adv14b/item-4.png",
+     "default": [
+      0.28,
+      0.147,
+      0.297,
+      0.216
+     ],
+     "at": {
+      "23": [
+       0.306,
+       0.154,
+       0.26,
+       0.208
+      ]
+     }
+    },
+    "5": {
+     "file": "adv14b/item-5.png",
+     "default": [
+      0.004,
+      0,
+      0.706,
+      0.963
+     ],
+     "at": {
+      "6": [
+       0.004,
+       0,
+       0.706,
+       0.956
+      ],
+      "7": [
+       0.004,
+       0,
+       0.706,
+       0.956
+      ]
+     }
+    },
+    "6": {
+     "file": "adv14b/item-6.png",
+     "default": [
+      0.13,
+      0.014,
+      0.854,
+      0.661
+     ],
+     "at": {
+      "15": [
+       0.13,
+       0.03,
+       0.854,
+       0.633
+      ]
+     }
+    },
+    "7": {
+     "file": "adv14b/item-7.png",
+     "default": [
+      0.436,
+      0.272,
+      0.186,
+      0.216
+     ],
+     "at": {
+      "26": [
+       0.46,
+       0.33,
+       0.158,
+       0.151
+      ],
+      "29": [
+       0.436,
+       0.279,
+       0.186,
+       0.208
+      ]
+     }
+    },
+    "19": {
+     "file": "adv14b/item-19.png",
+     "default": [
+      0.079,
+      0.641,
+      0.557,
+      0.359
+     ],
+     "at": {
+      "9": [
+       0.079,
+       0.692,
+       0.557,
+       0.302
+      ],
+      "13": [
+       0.079,
+       0.648,
+       0.557,
+       0.352
+      ]
+     }
+    },
+    "23": {
+     "file": "adv14b/item-23.png",
+     "default": [
+      0.623,
+      0.613,
+      0.297,
+      0.288
+     ],
+     "at": {
+      "2": [
+       0.623,
+       0.614,
+       0.297,
+       0.273
+      ],
+      "17": [
+       0.644,
+       0.622,
+       0.241,
+       0.266
+      ],
+      "18": [
+       0.623,
+       0.62,
+       0.297,
+       0.28
+      ],
+      "19": [
+       0.623,
+       0.62,
+       0.297,
+       0.28
+      ],
+      "24": [
+       0.623,
+       0.614,
+       0.297,
+       0.273
+      ],
+      "25": [
+       0.623,
+       0.614,
+       0.297,
+       0.273
+      ]
+     }
+    },
+    "25": {
+     "file": "adv14b/item-25.png",
+     "default": [
+      0.28,
+      0.537,
+      0.297,
+      0.101
+     ],
+     "at": {
+      "4": [
+       0.305,
+       0.537,
+       0.269,
+       0.101
+      ],
+      "14": [
+       0.28,
+       0.538,
+       0.297,
+       0.093
+      ],
+      "17": [
+       0.307,
+       0.552,
+       0.251,
+       0.079
+      ]
+     }
+    },
+    "26": {
+     "file": "adv14b/item-26.png",
+     "default": [
+      0.511,
+      0.537,
+      0.489,
+      0.101
+     ],
+     "at": {
+      "17": [
+       0.511,
+       0.545,
+       0.489,
+       0.086
+      ]
+     }
+    },
+    "27": {
+     "file": "adv14b/item-27.png",
+     "default": [
+      0,
+      0,
+      1,
+      0.9
+     ],
+     "at": {
+      "13": [
+       0,
+       0,
+       1,
+       0.888
+      ],
+      "19": [
+       0,
+       0,
+       1,
+       0.888
+      ]
+     }
+    },
+    "30": {
+     "file": "adv14b/item-30.png",
+     "default": [
+      0.337,
+      0.537,
+      0.297,
+      0.388
+     ],
+     "at": {
+      "24": [
+       0.337,
+       0.538,
+       0.297,
+       0.381
+      ],
+      "25": [
+       0.338,
+       0.545,
+       0.288,
+       0.374
+      ]
+     }
+    },
+    "34": {
+     "file": "adv14b/item-34.png",
+     "default": [
+      0,
+      0.492,
+      0.631,
+      0.446
+     ],
+     "at": {
+      "5": [
+       0,
+       0.493,
+       0.631,
+       0.438
+      ],
+      "11": [
+       0,
+       0.514,
+       0.622,
+       0.417
+      ]
+     }
+    },
+    "35": {
+     "file": "adv14b/item-35.png",
+     "default": [
+      0.474,
+      0.419,
+      0.526,
+      0.431
+     ],
+     "at": {
+      "1": [
+       0.476,
+       0.419,
+       0.524,
+       0.431
+      ],
+      "4": [
+       0.476,
+       0.419,
+       0.524,
+       0.431
+      ],
+      "6": [
+       0.474,
+       0.42,
+       0.526,
+       0.424
+      ],
+      "7": [
+       0.474,
+       0.42,
+       0.526,
+       0.424
+      ],
+      "11": [
+       0.476,
+       0.421,
+       0.524,
+       0.417
+      ]
+     }
+    },
+    "37": {
+     "file": "adv14b/item-37.png",
+     "default": [
+      0.293,
+      0,
+      0.186,
+      0.8
+     ],
+     "at": {
+      "22": [
+       0.329,
+       0,
+       0.121,
+       0.781
+      ]
+     }
+    },
+    "51": {
+     "file": "adv14b/item-51.png",
+     "default": [
+      0.267,
+      0.713,
+      0.409,
+      0.187
+     ],
+     "at": {
+      "17": [
+       0.284,
+       0.714,
+       0.39,
+       0.18
+      ],
+      "25": [
+       0.284,
+       0.714,
+       0.39,
+       0.18
+      ]
+     }
+    }
+   }
+  },
+  "quest1": {
+   "rooms": {
+    "1": "quest1/room-1.png",
+    "2": "quest1/room-2.png",
+    "3": "quest1/room-3.png",
+    "4": "quest1/room-4.png",
+    "9": "quest1/room-9.png",
+    "12": "quest1/room-12.png",
+    "15": "quest1/room-15.png",
+    "17": "quest1/room-17.png",
+    "19": "quest1/room-19.png",
+    "20": "quest1/room-20.png"
+   }
   }
  },
  "files": {
+  "adv01/room-1.png": {
+   "size": 356015,
+   "sha256": "5daeb062a416b75bbf5304f8863ea1faa9ba11f59c231448180d41806af6dbeb"
+  },
+  "adv01/room-2.png": {
+   "size": 341876,
+   "sha256": "88b9b9d3e55300e73205519a30d6abfb25f53471cef1bc56a4ba338927cd6c04"
+  },
+  "adv01/room-3.png": {
+   "size": 400546,
+   "sha256": "0fb0a5560751b610312e99d7bfe2a7441a93aff62759a8c654239e22649251c1"
+  },
+  "adv01/room-4.png": {
+   "size": 358608,
+   "sha256": "346863f0cda5df79026a2f31b08b0cad6ba1e5a132a235f07ef816b067eacb35"
+  },
+  "adv01/room-5.png": {
+   "size": 336935,
+   "sha256": "4789e083ce5a35d6fc86788e0a35d0e73dd57664066a66783ed8a6feb07637d1"
+  },
+  "adv01/room-6.png": {
+   "size": 345541,
+   "sha256": "8a1d034203fac85e281bc72e4613fa7f3c93bfe47b371928aaba38d8b123d8f4"
+  },
+  "adv01/room-7.png": {
+   "size": 286329,
+   "sha256": "2a980be3048c92d323e50766b72823707dca95d199a0c59d60cb922c7cd4c949"
+  },
+  "adv01/room-8.png": {
+   "size": 269083,
+   "sha256": "5ecface2a2ec59226def86fe9853850a53f507c08be9afd90bf4d588d0b7eeb1"
+  },
+  "adv01/room-9.png": {
+   "size": 298663,
+   "sha256": "cad35edefcadeedab88842eb111468dc8796b1369522dd7099f54157f42db9f0"
+  },
+  "adv01/room-10.png": {
+   "size": 300561,
+   "sha256": "f39322bb9c5529f30adf825fd962b73773a864f6ae779f26a18f60c1814e45bb"
+  },
+  "adv01/room-11.png": {
+   "size": 409985,
+   "sha256": "78fccf6de55ade2affe5efea0194f27884adb6caff3ffbf6cf56029c0413aecd"
+  },
+  "adv01/room-12.png": {
+   "size": 229747,
+   "sha256": "4ce42d1f6930b3c130d290923f5d55c6f5db1b4186b1368c66a131de1191261b"
+  },
+  "adv01/room-18.png": {
+   "size": 332117,
+   "sha256": "b97779fc52ed66dc19874ea2dfab6b07212dd8133a2de86081ec56718b1148ac"
+  },
+  "adv01/room-19.png": {
+   "size": 306621,
+   "sha256": "15e668b97bf5a91ce7af7e6dfa34880f18d669deedf866211725d98672d49c9b"
+  },
+  "adv01/room-20.png": {
+   "size": 320719,
+   "sha256": "62e0c6b28fb7d303f30ee004a1001d1b67fe16b8d5b1d3c00f163d9d57adb053"
+  },
+  "adv01/room-21.png": {
+   "size": 216034,
+   "sha256": "44468d51fd41514347ed89b3a67de139164f2224d98f0c4c1a3e5ffcee44e651"
+  },
+  "adv01/room-22.png": {
+   "size": 281797,
+   "sha256": "0c8beb5cbb56987de96b854b69f3a7495230a921ec10816f382929aee733c9ba"
+  },
+  "adv01/room-23.png": {
+   "size": 295432,
+   "sha256": "7c58d9ad85676c34d144c7838a73e4f9403c8e2b1bff81d54d9047d3073967c3"
+  },
+  "adv01/room-24.png": {
+   "size": 373395,
+   "sha256": "eb62867e8716fb18344308a11bd26546a8e4b6ed706df6d23160ac33ea07a0a6"
+  },
+  "adv01/room-25.png": {
+   "size": 364920,
+   "sha256": "294b1d43e6966255dd10734b87e1ad6ee63099117bcd0a8e169a54a58fe81e19"
+  },
+  "adv01/room-26.png": {
+   "size": 371843,
+   "sha256": "4aee2ade3355c24a7dec77364db66f41ca355f555bb0caf755d40719d2ea31e8"
+  },
+  "adv01/room-27.png": {
+   "size": 256081,
+   "sha256": "d6185acb1f5fd5352f8b67f9a4cbc9313016510f10876ab60f2c2f03a9e1d24b"
+  },
+  "adv01/room-28.png": {
+   "size": 314132,
+   "sha256": "aa0e150ed58cfb7975b032d919f173b00a5ad125aa02fa115fd83f95e9e93f36"
+  },
+  "adv01/room-29.png": {
+   "size": 311110,
+   "sha256": "4a8caa80a829150b7ef9de319444c8d7faa8f4f4e06588ecf7d9bd457a9e1a86"
+  },
+  "adv01/room-30.png": {
+   "size": 308998,
+   "sha256": "b5672a263da54d2ec91ab50b93761aee35c3abffd66e043ed599b23311b6a3cb"
+  },
+  "adv01/room-31.png": {
+   "size": 430163,
+   "sha256": "b57f2c3f1c9a8b2273e006b08cd45ae1e56c98b0dbbd5dac23679db954c0b8be"
+  },
+  "adv01/room-32.png": {
+   "size": 307870,
+   "sha256": "c4813aa550750637ba83cf65371ce00bc0e7fdb5932ebd830d95b018dfc028e3"
+  },
+  "adv01/room-33.png": {
+   "size": 200775,
+   "sha256": "c3a9b521a8287893a140615d42ad799a4e319eb1d6d9fcfa4a2f7aeafb636d42"
+  },
+  "adv01/item-17.png": {
+   "size": 63172,
+   "sha256": "06cad039d9dae6acb7a6db9b28393051eaeee95ef75a78823de8f2708215a5fa"
+  },
+  "adv01/item-25.png": {
+   "size": 73322,
+   "sha256": "15678d315eed6fd62ebea8fc36587b723c6b02f39faafbdb90f66c94ab9f8800"
+  },
+  "adv01/item-27.png": {
+   "size": 85006,
+   "sha256": "5d897b0bc52d6ea39d0abe27e7a4baa6c56399691f0ab1397973ca5a38e4ef42"
+  },
+  "adv01/item-29.png": {
+   "size": 158119,
+   "sha256": "634b0c0cbcba1c0efb32c302104116a0f8d7564054a0e28d94b3adfa9c376a4e"
+  },
+  "adv01/item-35.png": {
+   "size": 107558,
+   "sha256": "140da1109a35d84ac4c7073f4b8979f5699455a36c59254fe6d6ed670def42a4"
+  },
+  "adv01/item-39.png": {
+   "size": 40436,
+   "sha256": "80a1cf007589993c50ccba488113661e548d46d6c3f1c62d184f6f0a0c47f884"
+  },
+  "adv01/item-43.png": {
+   "size": 57739,
+   "sha256": "75367523c357333f7fb3c3491258cc6ed655f4de2f256142ea25b5ef611f8e9c"
+  },
+  "adv02/room-1.png": {
+   "size": 339311,
+   "sha256": "33b9f0ae9f6d3ccd1e6b9014d1a347e02c62e995690e69fade439d5a3b7dae8d"
+  },
+  "adv02/room-2.png": {
+   "size": 232467,
+   "sha256": "0ce02fc8c661fc164580ec1c07968a4e9bd5d0b74dbf8a1494683d930ae82783"
+  },
+  "adv02/room-3.png": {
+   "size": 307368,
+   "sha256": "7f0988d90d46614834167b26b084c9fc28f54c62fedfbfbdc0ea4c06f23b7a96"
+  },
+  "adv02/room-4.png": {
+   "size": 395392,
+   "sha256": "b896ef32a72127b8e52085476bda4bdbb3ddcc28f7bed1793bdcf3e8555e3c03"
+  },
+  "adv02/room-5.png": {
+   "size": 348183,
+   "sha256": "4f3519d9bf26b978cdc87fc53e95bba4b2c16f6d85a51cddefcadf8e138ecd1f"
+  },
+  "adv02/room-6.png": {
+   "size": 253739,
+   "sha256": "fecef342ebc1961846667ead4205df362ee985d23c79c1b3fa9694fea4cad98b"
+  },
+  "adv02/room-7.png": {
+   "size": 378132,
+   "sha256": "42bc206ba9cafcb9a169440263c7037cd0c19869222663282dde6fedb51bf9d4"
+  },
+  "adv02/room-8.png": {
+   "size": 316710,
+   "sha256": "9e10d8180d3ed014504ae847b7e26655671797878ade98bf1f142c4b81103dbf"
+  },
+  "adv02/room-9.png": {
+   "size": 354354,
+   "sha256": "b7737a3efe95b41cfba8630695b7b0a293cdef9edbc2c2938a1c81e02401f7ff"
+  },
+  "adv02/room-10.png": {
+   "size": 264074,
+   "sha256": "e3df17ccd02b4c2764091aa6f081eb3e84edb4d2caeee75f992883c34ee656c1"
+  },
+  "adv02/room-11.png": {
+   "size": 338922,
+   "sha256": "e9bb34e57a7db9fa6b133576a39b017e3770ab7b6988f1a8529a71d79d3793cd"
+  },
+  "adv02/room-14.png": {
+   "size": 291593,
+   "sha256": "e8a1f6ca5d1c59aa7001535307380c949124ca6d1ee3b67c26eb6349f588354a"
+  },
+  "adv02/room-15.png": {
+   "size": 379072,
+   "sha256": "532ef72a46adb72d3b7cae3ff31e1d4d73da2c4783038cbdf897c8b4d5fe6c31"
+  },
+  "adv02/room-16.png": {
+   "size": 398936,
+   "sha256": "5345b692f04de1dd71c0dd3c8535a274275ef95d000831f4cace0f128d08ff8c"
+  },
+  "adv02/room-17.png": {
+   "size": 359343,
+   "sha256": "4a11e20be8916a88ba1544987390de29468e5475fd9d13fa5f96567c11b0251b"
+  },
+  "adv02/room-18.png": {
+   "size": 259950,
+   "sha256": "9989e819e938548b8c1aca50649783851f41f6cd8f9b92606aa456b5a1743f7c"
+  },
+  "adv02/room-20.png": {
+   "size": 300773,
+   "sha256": "0394b96f5dcd0a44f85e0357632f3bc3a7e693b160791c93f867642c9c7a5883"
+  },
+  "adv02/room-21.png": {
+   "size": 256248,
+   "sha256": "18e337018bc0380a2c9108ef95d85de76c5e3de9cc50af61eedde5e51dd4a248"
+  },
+  "adv02/room-22.png": {
+   "size": 276178,
+   "sha256": "c74a4fa87b8536b988dbbea8fa01c1cddad84829b622bcc325ef705c65ddde86"
+  },
+  "adv02/room-23.png": {
+   "size": 240894,
+   "sha256": "4bd82028e53589800eb1d0034b01439af05ef7dc9490e463ca288513c3f4e367"
+  },
+  "adv02/room-24.png": {
+   "size": 257907,
+   "sha256": "c414bcba803837ff1049456cf73f53b044635f5862382d9b8323b76c3a639e26"
+  },
+  "adv02/room-25.png": {
+   "size": 374180,
+   "sha256": "b4c5d1a190125cb0f73ad9f6eb94d947fc96c7a18f5ff60604c4bf829c09800d"
+  },
+  "adv02/room-26.png": {
+   "size": 292094,
+   "sha256": "874599ba4677d6f2e5baece2f830ff27f54cb6f378ab8aba139c0f081b97968b"
+  },
+  "adv03/room-2.png": {
+   "size": 193664,
+   "sha256": "86ebb35e506da6acfa79068a30de737fc2c2d8487cb7659d388f39cef3433764"
+  },
+  "adv03/room-3.png": {
+   "size": 357422,
+   "sha256": "6fc1eaf3dca216d570a29c3530715b8127999528101a9fd6ac7b5624c56599f5"
+  },
+  "adv03/room-4.png": {
+   "size": 327400,
+   "sha256": "b7dc0d8b9f31105251de3bdbdd4be0dceec7ff6ffdc0ae19672023c1da5a9636"
+  },
+  "adv03/room-5.png": {
+   "size": 252416,
+   "sha256": "0e3600a1dbc36a3affbfdbe0457cff12ff9fab9cfc352205bab8bba1d3dcdd3d"
+  },
+  "adv03/room-6.png": {
+   "size": 315137,
+   "sha256": "9cd2eddee0689198a22265651ae8bed28ba82af42e1a5fbd6f94ebb1ea0754b4"
+  },
+  "adv03/room-7.png": {
+   "size": 253469,
+   "sha256": "8d872b243eed7d874599d5cfdf558c1c8b250ab41b3362c3cfb37bd98aa59447"
+  },
+  "adv03/room-8.png": {
+   "size": 245505,
+   "sha256": "281ce814349291da523498328b5103bd3086252ebcbbba33fb348ce531f6b568"
+  },
+  "adv03/room-9.png": {
+   "size": 270327,
+   "sha256": "2967df0fd77365d309ea5fab677c48ae1e090894edb7eb1a65245b4ed5b69c5f"
+  },
+  "adv03/room-10.png": {
+   "size": 280679,
+   "sha256": "b47ed7f2e9b52e416ffedbe6632947ad65883974313bf40b19d70a1985996205"
+  },
+  "adv03/room-11.png": {
+   "size": 251409,
+   "sha256": "6ea0d88664c959354ad4e9a7e25e17e16819f1c57706a819b4b3fd591e38d117"
+  },
+  "adv03/room-12.png": {
+   "size": 323439,
+   "sha256": "5583da20d06bd78f92295348c808c81ddda8a55104e4e12659a0b0fa36c83dbc"
+  },
+  "adv03/room-13.png": {
+   "size": 255969,
+   "sha256": "766de0e8dc69b81fdfef6463721174d9bf8315e4bc080a160588d4cd4d1e96ef"
+  },
+  "adv03/room-14.png": {
+   "size": 294560,
+   "sha256": "c989bdef9d33240a60693045e680f2c275026d076a36e88084d7eb87a744abea"
+  },
+  "adv03/room-15.png": {
+   "size": 254010,
+   "sha256": "ace77901a14a288c59330af231248ff9d3b02a844c5d5a03870b12f5d2151ac3"
+  },
+  "adv03/room-16.png": {
+   "size": 298484,
+   "sha256": "632e7b1b3e10116563e0b2681a12100cecb5f01def2ca8ce468de16139999ab3"
+  },
+  "adv03/room-17.png": {
+   "size": 305659,
+   "sha256": "ba3c0738e9c50594a1528345d934b48420881d764e7ab037f677c00171e94b48"
+  },
+  "adv03/room-18.png": {
+   "size": 279081,
+   "sha256": "29c89670c58a3cce6eec6193c899484abaa029b6c37df9cb6e8e3b5c56195669"
+  },
+  "adv03/room-19.png": {
+   "size": 297751,
+   "sha256": "b7cbc61f9dea53c7d2d9dac454e1acc893eada2455a2a1eb8d82bf4a487d5c13"
+  },
+  "adv03/room-20.png": {
+   "size": 223741,
+   "sha256": "0282374c303d514ab0da0ffae6aa4b2225df5a1bb343811def5fb830e4dba2ff"
+  },
+  "adv03/room-21.png": {
+   "size": 298662,
+   "sha256": "5426770cc677219e375c95e1cd26fcee7e85d01757feb3183ae5e54f4b81319d"
+  },
+  "adv03/room-22.png": {
+   "size": 276505,
+   "sha256": "88c5d4ee092e9bad847c2df453b4394c72d107d9352795774f327176eb164b6c"
+  },
+  "adv03/room-23.png": {
+   "size": 233700,
+   "sha256": "dd11ea728bbf932861fb5ce9481581ece1dae30be3174519f18b33f3c5941586"
+  },
+  "adv04/room-1.png": {
+   "size": 292781,
+   "sha256": "4c32cb17a3aad4db7dd2a20536fc897a34bb36277693ef021801c2d27c07cb2d"
+  },
+  "adv04/room-2.png": {
+   "size": 361802,
+   "sha256": "543dabbf944d6501d803106b5aafa44f1eba515c82e020f79ca5a8dc042e430b"
+  },
+  "adv04/room-3.png": {
+   "size": 333272,
+   "sha256": "cf18c490b83e2a88db2ea0e2ff1636b234e1d86359c29e4875ebe96564f7673e"
+  },
+  "adv04/room-4.png": {
+   "size": 352295,
+   "sha256": "aaf1b2e2e2180dcf2a3082186e40ac17f7631308f2b9c54f180935c1f37cc0f9"
+  },
+  "adv04/room-5.png": {
+   "size": 307187,
+   "sha256": "29cfb6303ef99fd154da3ba6b0bd64d8fbc030a8119990577c385f11324fa437"
+  },
+  "adv04/room-6.png": {
+   "size": 299743,
+   "sha256": "5e5865095430210f0c34bc6907e4c921bc7c6a8d0faea43b1ae58b4c10af30f7"
+  },
+  "adv04/room-7.png": {
+   "size": 351638,
+   "sha256": "59ed0144569c7f4a0d854cd733ca2e7f96f01a6008a487e403531e74ac7c09d2"
+  },
+  "adv04/room-8.png": {
+   "size": 295775,
+   "sha256": "84633d5ef0fa06be97603f9dbbd1e5faa8bafb207c4d53e86f803aa3d38f2338"
+  },
+  "adv04/room-9.png": {
+   "size": 320559,
+   "sha256": "25f29f116946e0decaf435d4933878de9b574bbf760ff969941d7ca44d59ac38"
+  },
+  "adv04/room-10.png": {
+   "size": 272313,
+   "sha256": "aea15f729d1c553471f3e7ae4217c162d5b7ad1e435a00e04e94bcfb9c39ddb7"
+  },
+  "adv04/room-11.png": {
+   "size": 375432,
+   "sha256": "5df39df96feef6f468f52e1e29f3ad36e7c9573e442c96eb3ada1fc8e4ca7c0d"
+  },
+  "adv04/room-12.png": {
+   "size": 401656,
+   "sha256": "8dd9182437688a49560b207644539f645db75e84a1b3a35fd70d2a1e67e930f1"
+  },
+  "adv04/room-13.png": {
+   "size": 365107,
+   "sha256": "8a42f9daa52b4907faff77ed80159ff1c0373625e38c82943e0653ff9b6d56b9"
+  },
+  "adv04/room-14.png": {
+   "size": 369999,
+   "sha256": "55cb938b16c488e6b3c02838f49353ec47d08c46ba4aad91542dda5d294b99f9"
+  },
+  "adv04/room-15.png": {
+   "size": 363136,
+   "sha256": "6f70d54bc4adda1ab573f27ec918dcaf6871c19db293f2e147b58a265d54144f"
+  },
+  "adv04/room-16.png": {
+   "size": 307414,
+   "sha256": "8c36fb3e42e2fca984c4c2b9658b97bfaced1b8e69f3a1d17066f3e1cfbc6d10"
+  },
+  "adv04/room-17.png": {
+   "size": 325426,
+   "sha256": "7d519bd861aed60f6eb30bab93b7bffa2030edb90a6bf6df7336ebb0a80c8b9b"
+  },
+  "adv04/room-18.png": {
+   "size": 361906,
+   "sha256": "0fe143103e61180de95b63eb8f5de9d2c07ab94d5971da029aa70c3570d9a00f"
+  },
+  "adv04/room-19.png": {
+   "size": 383724,
+   "sha256": "b58c43b05691d236bb121fdfcc52a31a2321593a5740fb567f876a608fc246a5"
+  },
+  "adv04/room-20.png": {
+   "size": 315314,
+   "sha256": "2c98fd5c65a5d9dfbbaac0f26d899cc54d987ef572179992451905eb84f9eefa"
+  },
+  "adv04/room-21.png": {
+   "size": 360305,
+   "sha256": "91f3b1f9912471f4d72d698017f381ac76639074c6b3d65d617130f3e3df9fc6"
+  },
+  "adv04/room-22.png": {
+   "size": 288939,
+   "sha256": "b29fe36be9961713e9493ec83cf74eaa403f3bb895026dd235bb8a23a6786fb0"
+  },
+  "adv04/room-23.png": {
+   "size": 320217,
+   "sha256": "451dbd14b5193ff9b80e6a3f51f975e72bb2a0e4bcb5e058dc7a14243966c8f4"
+  },
+  "adv04/room-24.png": {
+   "size": 268260,
+   "sha256": "a44f6262015667520ced6b7911bf436efd47cb785039b55f4847efa10cc0afae"
+  },
+  "adv04/room-25.png": {
+   "size": 329656,
+   "sha256": "823dab62f216eef5bf2d7015dbeed01cae7649af11c06555cc4bcf495a8ab327"
+  },
+  "adv04/item-6.png": {
+   "size": 64793,
+   "sha256": "9f56be6bc0735a247ee9a3c528aa731e53c7f72b82a54321f4862c52d31bde32"
+  },
+  "adv04/item-10.png": {
+   "size": 91093,
+   "sha256": "e78797dce6719c1d48e5562b2f979173f9e98f18cdc9a54b02bffac16a068d2f"
+  },
+  "adv04/item-13.png": {
+   "size": 92475,
+   "sha256": "c940c6dd26fa1e3bbf3d5620714d88c537ae5e862a35177796df07e38fdefe52"
+  },
+  "adv04/item-17.png": {
+   "size": 22004,
+   "sha256": "944bd3df19349637bd9380f34f3ec0d4261ef1349505031727265588344338fc"
+  },
+  "adv04/item-23.png": {
+   "size": 96949,
+   "sha256": "fe01a924c298b447f01c60a12e3140248a53260890a8e3b78dbd90f995f9fff7"
+  },
+  "adv04/item-28.png": {
+   "size": 72251,
+   "sha256": "90ed85f68bb9721ebbc9de6f9e1cae99bf665d114b500382641eb5f8c84787ba"
+  },
+  "adv04/item-31.png": {
+   "size": 30612,
+   "sha256": "86b9eac970c5524f79beab6f8ac04b763980812ac4d900e7695611fea4048829"
+  },
+  "adv04/item-34.png": {
+   "size": 63517,
+   "sha256": "b829c1074c397cb6d88763ee36d5cc27308a7a9e2cf91935c288dc5e821ac9d7"
+  },
+  "adv04/item-35.png": {
+   "size": 71012,
+   "sha256": "6aee449323eac06fc0397a03590128941def940dfdedffa071483364cf59da30"
+  },
+  "adv04/item-37.png": {
+   "size": 71568,
+   "sha256": "d622dddd5edb19390e14ae16c8c776a99057fe93ddb50f2f129fd9d8e7a2064a"
+  },
+  "adv04/item-41.png": {
+   "size": 89806,
+   "sha256": "5899f7655e1abe51dee4f2c1691beb09810a3a598c418afd6abc1a558a3de5e8"
+  },
+  "adv04/item-48.png": {
+   "size": 100555,
+   "sha256": "284d20fd047a5e071b9e26c7eabcda97d8bb7921ecc2753ae1fd6ba59fa0cab3"
+  },
+  "adv04/item-50.png": {
+   "size": 97547,
+   "sha256": "12d88a849f5c8d7dd5d7e4ee372379a9bcdaa7a26dccea27fec262a1ef763a2c"
+  },
+  "adv04/item-65.png": {
+   "size": 47210,
+   "sha256": "6810788fdd0c1ea4e311dc05f2fe2cb3527312e87ccad23d6e75fd9c2994af39"
+  },
   "adv08/room-1.png": {
    "size": 213463,
    "sha256": "f29ff60565f1476b563da89f95647f3ab3a4866a3eb4b2528c752b42ce0c657e"
@@ -805,6 +2496,294 @@
   "adv08/item-100.png": {
    "size": 120047,
    "sha256": "023dbfbb8828fead5e1c4cac317be78ebeca7a638552ccf4b88d13871cb572bc"
+  },
+  "adv14a/room-1.png": {
+   "size": 264823,
+   "sha256": "0884fd30a9df5a4233dbec858d8bf62344a2390d83d1e1f5adf5f7d4a2865acd"
+  },
+  "adv14a/room-2.png": {
+   "size": 321745,
+   "sha256": "013c62c4c1b961d0bc41c3bc38ff612b1b6ba52da5367c8f817d646092c6423d"
+  },
+  "adv14a/room-3.png": {
+   "size": 260713,
+   "sha256": "b6cf298a29330eef493e2cf640a0879e6ea935834e7f6246da955536121f04f6"
+  },
+  "adv14a/room-4.png": {
+   "size": 224876,
+   "sha256": "387a2d4f8af689f6716e871fc58ae50734d339a1b1f80205e36e12cfe63db399"
+  },
+  "adv14a/room-5.png": {
+   "size": 255585,
+   "sha256": "aa6f0ec9f5e65074fa673d630acb02fc8b4944fec7ae09117d53201bbf897fc5"
+  },
+  "adv14a/room-6.png": {
+   "size": 273885,
+   "sha256": "86d563e2e7c0593bc83235532e68ffc9c69ca55540402292af40abe3aa5e9677"
+  },
+  "adv14a/room-7.png": {
+   "size": 281894,
+   "sha256": "7a1f18c70529553138d45f13f2d1fc69533169c77bf2262b2bc5323fefb474ac"
+  },
+  "adv14a/room-10.png": {
+   "size": 330008,
+   "sha256": "24cc36837879da2d7e85fb520960b83dd3dc8d8a654e833be2c9a0bb8f829a1c"
+  },
+  "adv14a/room-11.png": {
+   "size": 242925,
+   "sha256": "8380c27b59a0477898932270b89d58e6792f06eb80689b64e35751b89848c728"
+  },
+  "adv14a/room-12.png": {
+   "size": 258618,
+   "sha256": "6e1ac704dc8e258fbb57ca3f900fdba9e09097cd523857875b9c56c88f5fdcfb"
+  },
+  "adv14a/room-13.png": {
+   "size": 336754,
+   "sha256": "9d042e76d19d8076e4dd4e882913796b3a4294cc4deae45fdd059fbac24c1bab"
+  },
+  "adv14a/room-15.png": {
+   "size": 274139,
+   "sha256": "8a969f875b1ed81c1d603a68787f0b8e000cf9f15a7f178e84a6cb830fe4a111"
+  },
+  "adv14a/room-16.png": {
+   "size": 308175,
+   "sha256": "2a9a29fa6726df4c94940cce82be4d4a5bb5651f433114419eff399b5ddae199"
+  },
+  "adv14a/room-17.png": {
+   "size": 355576,
+   "sha256": "9767a59aa4697cf9c1bace4a3293671878cc1206f2d69fbdd744091597a7cfff"
+  },
+  "adv14a/room-18.png": {
+   "size": 284554,
+   "sha256": "ae45140d4816d5ac4b2a31ce489945017bbecc9a5bad8041f8f0877c98813763"
+  },
+  "adv14a/room-19.png": {
+   "size": 278325,
+   "sha256": "cd0005edd50b03fe9cb03fe183196796726895e6face85e4ec9354525e6b0baf"
+  },
+  "adv14a/room-20.png": {
+   "size": 362753,
+   "sha256": "4cfaeaff47e93724c883f429e86fc0b447693744d16f245a7cbf51c956e5b84e"
+  },
+  "adv14a/room-21.png": {
+   "size": 213401,
+   "sha256": "fdd7307620ab245a09d656be4cf1c0cdeadcee7209134aea1064ca609f154846"
+  },
+  "adv14a/room-22.png": {
+   "size": 279659,
+   "sha256": "db158288b943821da1a1c410de164c450d06873bf90456d2350e81a5038a2c2b"
+  },
+  "adv14a/room-23.png": {
+   "size": 291890,
+   "sha256": "49483ea776e94a94b162a4131c1311b346c6c101328b2ba084e273e1879465f8"
+  },
+  "adv14a/room-24.png": {
+   "size": 271673,
+   "sha256": "5e136bd7baa65ba51e670359cbde02086cd56d78b26a9a627233d4fb2e78066c"
+  },
+  "adv14b/room-1.png": {
+   "size": 250584,
+   "sha256": "a2afc12c1ddb1826ebd2cec9c90c334c6c30cf81d83257724efa2d2f55ed43d5"
+  },
+  "adv14b/room-2.png": {
+   "size": 297229,
+   "sha256": "a7334b117960a2270c9fc8b7f4d6a8dd49da1dcda60d6abf12e4699f7c66ca91"
+  },
+  "adv14b/room-3.png": {
+   "size": 277324,
+   "sha256": "d2c6b1ddcec20cdd160e95fea96370da45767d09c13e481efef6be0bb94b3571"
+  },
+  "adv14b/room-4.png": {
+   "size": 240034,
+   "sha256": "e42eb79b51059ba4c8fc31f62091b1911227470fab69de08a7f7be3090302e04"
+  },
+  "adv14b/room-5.png": {
+   "size": 308574,
+   "sha256": "2a92dd1ed0b04fb6563900d29be7dca7ca76483be481d5154bb7e9de88cc1391"
+  },
+  "adv14b/room-6.png": {
+   "size": 244264,
+   "sha256": "b4adadaa63f2fa8f12aa98b99d3f80690f8bad9c91e1be171143852be29cc4c6"
+  },
+  "adv14b/room-8.png": {
+   "size": 229178,
+   "sha256": "a8bf119ebd3edaac9b6c8623fc7cf4b0bc4f93d7606bd818006dc318362616ab"
+  },
+  "adv14b/room-9.png": {
+   "size": 259330,
+   "sha256": "0f18fc395024b6eff910db52da33fcdc7c41bf36b19e52d48e8a051484855743"
+  },
+  "adv14b/room-11.png": {
+   "size": 302021,
+   "sha256": "4f621109395246a5f41c6af8f16e1ede8d2781a58cdc12402640d19623f4a2df"
+  },
+  "adv14b/room-12.png": {
+   "size": 252716,
+   "sha256": "c97bec522c4d5c02683572ac52b57b060e5992c85ee60834a3db2b6a463cb51c"
+  },
+  "adv14b/room-13.png": {
+   "size": 339563,
+   "sha256": "08ce2f278d303ec6946c0a360cd0617b40d1bceab03969d386bf5f762add5e8f"
+  },
+  "adv14b/room-14.png": {
+   "size": 358286,
+   "sha256": "aa28dbf3290bb1da598a74668cca1683e68d1ea439459375bc783c3e8ab080e8"
+  },
+  "adv14b/room-15.png": {
+   "size": 297399,
+   "sha256": "6e5c8cf07fdf6a5751e8702a0f81716fa9f4d95a26764df1f84fbc8db87db233"
+  },
+  "adv14b/room-16.png": {
+   "size": 273756,
+   "sha256": "c30a57e0e4b823f3c57c956ee2c9753bb5ba8551f928acec404237a8bbbfef9e"
+  },
+  "adv14b/room-17.png": {
+   "size": 303152,
+   "sha256": "c5e0cc16e0a449dbf92951080dbd3d4b5adf9a96db77c33f34b86b333e719a06"
+  },
+  "adv14b/room-18.png": {
+   "size": 309727,
+   "sha256": "c9f741ad2eac99d9b1994d923723770ff551173fa3766a9779bfd08ac791a586"
+  },
+  "adv14b/room-19.png": {
+   "size": 228043,
+   "sha256": "82dce8d353adc1dc3ee7de7e710ae37b1880184dc8db74aa8abe01e26bfc00b1"
+  },
+  "adv14b/room-20.png": {
+   "size": 268423,
+   "sha256": "2a9b17b5accd3734eb42b37b4ca671939f33c8203cc15934299f26e0cf87c3b4"
+  },
+  "adv14b/room-21.png": {
+   "size": 345566,
+   "sha256": "cef8ced0d998f3468f0ef54783ea7189d3d4957c78ea9d540dc3c56542b51f38"
+  },
+  "adv14b/room-22.png": {
+   "size": 341660,
+   "sha256": "b8ef94124567bc51aec691d8691fda85d641cf31eae9d940752e3188c12cb852"
+  },
+  "adv14b/room-23.png": {
+   "size": 314921,
+   "sha256": "3525080f313c0f5228b7e7b17fe56d9de9d4553c657e5f38dc68bb1051df5ee8"
+  },
+  "adv14b/room-24.png": {
+   "size": 327029,
+   "sha256": "8bbf2875a548863a8f7d5545480a1fbca3a8f0eeaeabb6d4efd1488f635c8647"
+  },
+  "adv14b/room-25.png": {
+   "size": 313842,
+   "sha256": "19fe056a9041575844d51eccd3e2abcead1028cff873787df7acdce406f885b4"
+  },
+  "adv14b/room-26.png": {
+   "size": 221750,
+   "sha256": "68088fd449989de0ab8ca87205b74b80883ae2824bd1176430d84a84be6660c6"
+  },
+  "adv14b/room-28.png": {
+   "size": 354711,
+   "sha256": "c4f21de757721254536d111c7373aeb6474e7d18eb14f83df866edb63a42a85f"
+  },
+  "adv14b/room-29.png": {
+   "size": 290139,
+   "sha256": "305fbf153982e1ae5dfe74dff4e68356ba20c77d1ecc6c45790f963f3fce8a2c"
+  },
+  "adv14b/room-35.png": {
+   "size": 266910,
+   "sha256": "fd0e726e89fa99526f6758c2ae20acc2b8a861d1088ce2a33139e5749af21df6"
+  },
+  "adv14b/item-4.png": {
+   "size": 65190,
+   "sha256": "47ea909ca2ee7496b017b832bd13374cb9aa2761bab4e129fca5d85faf66a661"
+  },
+  "adv14b/item-5.png": {
+   "size": 37991,
+   "sha256": "394d872843e791c56508a38cee9215b38a15afc62262ba652eeda0edf5930238"
+  },
+  "adv14b/item-6.png": {
+   "size": 88083,
+   "sha256": "21fac7a7735086e042e8fbac92c3a491b4c6a13ae4a16e84d46e0d402903bdd6"
+  },
+  "adv14b/item-7.png": {
+   "size": 61074,
+   "sha256": "70a447243da2593590fae36950a75411f3b31897416ea998f79df082a30ce80c"
+  },
+  "adv14b/item-19.png": {
+   "size": 87445,
+   "sha256": "09c2ee393faca79bb0537eb7760efe86b4ba2a8db294d001296e73711766469a"
+  },
+  "adv14b/item-23.png": {
+   "size": 17520,
+   "sha256": "39e3464f85f6e0d08c0b2f9c693672e965ca20e5f0bffb45da29979e2ff6ed61"
+  },
+  "adv14b/item-25.png": {
+   "size": 20140,
+   "sha256": "e7f4bf1127fdf01b9abe21e250b39b92a9bd3017bc234b20eee86f391aabac0b"
+  },
+  "adv14b/item-26.png": {
+   "size": 56581,
+   "sha256": "7909fdd79858f35549499e25e4b4a51b72fc3793411341e304992c75943b869a"
+  },
+  "adv14b/item-27.png": {
+   "size": 50575,
+   "sha256": "bba1c63def9acd952b4336029e024817dfe51ed4f9127e9217fe7e21c9f072bf"
+  },
+  "adv14b/item-30.png": {
+   "size": 70990,
+   "sha256": "0f4c0386fe203aa4dc125463bf0dfa46e2eb2f642b96ec36a593fc63fc296e92"
+  },
+  "adv14b/item-34.png": {
+   "size": 50773,
+   "sha256": "96867fa9439e0c91d75f078a5e2486bedf51acd1d2d7460533b71c3a19bea616"
+  },
+  "adv14b/item-35.png": {
+   "size": 46693,
+   "sha256": "f8476d4fe720cc68653e2f14099b78a7564b76f79bfbe89e70553b868fbceb5a"
+  },
+  "adv14b/item-37.png": {
+   "size": 9454,
+   "sha256": "6a6627d66aeb9a3ff37753d59aa4ee8ebde2df632ee07cd9fc698985000e2caa"
+  },
+  "adv14b/item-51.png": {
+   "size": 81027,
+   "sha256": "923de86be2cf5e49b014cc0285b544ea422f393a9ff980d410853498db627e19"
+  },
+  "quest1/room-1.png": {
+   "size": 327225,
+   "sha256": "2465cd16605a640a2706544dcc9c8b8b35ee2244e899503addd124cb10782c0e"
+  },
+  "quest1/room-2.png": {
+   "size": 298093,
+   "sha256": "616feb561a85a808f3b80d1b9eafc3682347f51a4679f0a316478ba91ba2dd9e"
+  },
+  "quest1/room-3.png": {
+   "size": 293206,
+   "sha256": "b395476c10d02a94a0d4001fad9da37997ed8caa550b6f2eb3bae998c1e52f3d"
+  },
+  "quest1/room-4.png": {
+   "size": 254725,
+   "sha256": "6d57d1d44f21969ad007908642e82362708f36ac0e13bbf5c312e6058d15eeb8"
+  },
+  "quest1/room-9.png": {
+   "size": 367005,
+   "sha256": "c8c1a6982bc0c68258136a03ab45c59bac848987a64deb8d917c38cc19ae38e8"
+  },
+  "quest1/room-12.png": {
+   "size": 418097,
+   "sha256": "96e99295167d9124e1c6cdd31841a524443b4e64b8b4a4fce70529854103b970"
+  },
+  "quest1/room-15.png": {
+   "size": 343468,
+   "sha256": "662b84b0384e4357612ffa285b5fdb2430f135e91d6b813f461fcc9e08bfd2d4"
+  },
+  "quest1/room-17.png": {
+   "size": 325646,
+   "sha256": "43793edb31949f53453c0e69178cd5d31a519d7bb56243a2fad939c1ec4a4875"
+  },
+  "quest1/room-19.png": {
+   "size": 300275,
+   "sha256": "76a8da896eddd9953c3c84cc3c69bc6c52bd07f773387a80f76a808a4dd0366c"
+  },
+  "quest1/room-20.png": {
+   "size": 235162,
+   "sha256": "41615dd34f116b41bc659153e72621e34e6ac293a372d66c00d0fb81089a85e1"
   }
  }
 }
