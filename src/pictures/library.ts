@@ -82,7 +82,7 @@ const GAMES = {
 type GameId = keyof typeof GAMES;
 
 /** The game a database is, if it's one we have pictures for. */
-function gameOf(database: Database): GameId | undefined {
+export function gameOf(database: Database): GameId | undefined {
   return (Object.keys(GAMES) as GameId[]).find(
     (id) => GAMES[id][0] === database.adventureNumber && GAMES[id][1] === (database.rooms[1]?.text ?? ''),
   );

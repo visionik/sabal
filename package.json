@@ -23,6 +23,8 @@
   },
   "files": [
     "dist",
+    "ng/manifest.json",
+    "ng/*/*.png",
     "README.md",
     "LICENSE",
     "NOTICE"
