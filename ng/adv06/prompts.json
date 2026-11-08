@@ -1,0 +1,30 @@
+{
+  "game": "Strange Odyssey",
+  "rooms": {
+    "1": "The cockpit of a one-man scout spaceship, retro 1970s science fiction: a curved hull framing a wide viewport onto the stars, a glowing control console beneath it, a small hatch in the floor, red and gold panels.",
+    "2": "A small spaceship airlock: red ribbed metal walls, an open inner door on the left and a closed outer door on the right, a red button beside the outer door, a grey deck.",
+    "3": "A large cavern inside an airless rocky planetoid: jagged rock walls and ceiling outlined in cold blue light, a pale opening of light high up, darkness and stars glimpsed through cracks.",
+    "4": "The grey cratered surface of a small airless planetoid under a black, star-filled sky, jagged rocks, a sleek retro scout rocket ship landed in the middle distance, a distant ringed planet and a comet streaking across the sky.",
+    "5": "The grey cratered surface of a small airless planetoid under a black, star-filled sky: jagged rocky ridges, long hard shadows, a comet streaking overhead, a distant blue planet on the horizon.",
+    "6": "A strange hexagonal alien room: walls of red crystal rising in jagged spikes, a shimmering curtain of flickering light across a wide arch in the far wall, small strange panels on the side walls, a rough golden floor.",
+    "7": "The storage hold of a small spaceship: green bulkhead walls in perspective, a metal ladder rising to a hatch above, a wall rack of equipment lockers on the far wall, a maintenance hatch in the floor.",
+    "8": "The grey cratered surface of a small airless planetoid under a black starry sky, jagged rocks, and in the middle distance the dark mouth of a cave in a rocky outcrop, a comet overhead.",
+    "9": "A large grassy plain at the edge of an alien jungle: lush green grass, a line of strange palm-like trees and domed trees along the horizon, a bright blue sky.",
+    "10": "A howling methane snowstorm on an alien world: swirling blue-grey snow, near whiteout, dim shapes of ice in the gloom, freezing and disorienting.",
+    "11": "Inside a small derelict alien spacecraft: a wide dark viewport onto space, a strange alien machine with glowing panels in the centre, red angular consoles either side, a cold grey deck.",
+    "12": "Standing on a narrow ledge just outside a spaceship's airlock, high on the hull: the vast curved red-and-purple hull of the ship below, the alien ground 90 meters down, an exposed and dizzying view.",
+    "13": "An alien art museum: a vast angular hall of purple and violet planes and strange geometric shapes, a gallery stretching away, eerie silent light.",
+    "14": "A deserted mining colony on Jupiter's moon: rolling green-grey ground, rusting mining towers, domes and machinery under a magenta sky with the giant striped planet looming.",
+    "15": "A strange alien jungle: tangled bright green vegetation, slimy twisted trees dripping ooze, coiled vines and fleshy orange growths, dense and humid.",
+    "17": "Black emptiness: a vast swirling black hole in deep space, a spiral of faint light and scattered red stars being drawn into its centre.",
+    "18": "A howling methane snowstorm on an alien world: swirling blue-grey snow, and far away to the north a strange glowing light piercing the storm.",
+    "19": "A methane snowstorm on an alien world: blowing blue-grey snow over icy hummocks, the sky lost in the storm.",
+    "20": "Deep inside a methane snowstorm: almost total blue-white whiteout, swirling snow, the faint outline of ice ridges.",
+    "21": "The ruins of an intergalactic zoo: broken cages and smashed enclosures of exotic alien design, a dark pool, crumbling red walls, twisted metal, an alien sky.",
+    "22": "The storage hold of a great mother ship: a round tunnel-like hold with concentric metal arches in red, purple and gold leading to a central opening, a large empty deck for treasures.",
+    "23": "A narrow maintenance crawl way inside a spaceship: a long square duct of red ribbed metal panels in perspective receding to a tiny far end.",
+    "24": "Inside a hollow ice mound: a dome of jagged blue ice crystals arching overhead, a smooth turquoise ice floor, cold glittering light.",
+    "35": "Death: a horned red demon with a trident looming in a hellish red landscape, bats fluttering, jagged black peaks."
+  },
+  "items": {}
+}

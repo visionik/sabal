@@ -1,0 +1,42 @@
+{
+  "game": "The Count",
+  "rooms": {
+    "1": "First-person view while lying in a large brass bed in a castle bedroom: bare feet poking out from white sheets toward the shining brass footboard rails, an orange-red stone brick wall beyond, gloomy dawn light.",
+    "2": "A gloomy Transylvanian castle bedroom of orange-red stone bricks: a brass bed stands in the middle against the far wall, a CLOSED arched window in the right-hand wall, a dark slate ceiling, a blue-grey stone floor.",
+    "3": "View from a narrow stone ledge high on a castle wall: the frame of an open window at the far left edge, an iron flagpole jutting horizontally from the wall at the top left, and below a breathtaking vista of snow-capped Transylvanian mountains under a bright blue sky with white clouds.",
+    "4": "Close view of a castle's orange-red stone wall: an arched window with a stone window box beneath it, cracks in the masonry, dizzying height implied, cold daylight.",
+    "5": "Standing in a stone flower box with daisies, looking in through a wide open castle window at a dim room, a knotted white bedsheet hanging down in front of the window, stone sill and walls around.",
+    "6": "A rough-hewn rock crypt beneath a castle: a dark arched opening in the middle of the far rock wall fringed with dripping icicle-like stalactites, a small barred vent high on the right, a blank wooden sign nailed on the left wall (no writing), old cigarette butts scattered on the floor.",
+    "7": "A dusty castle closet: empty wooden shelves on the back wall draped in cobwebs, a heavy wooden door with iron hinges on the left, a century of dust on the floor.",
+    "8": "A small castle bathroom of orange-red stone bricks seen in one-point perspective, an old porcelain toilet against the far wall, a blue floor, a mirror on the side wall.",
+    "9": "Outside a Transylvanian castle: a grand arched stone doorway with ornate iron gates swung open, carved stone skulls on each gate, stone stairs rising inside, a long bell-pull rope hanging at the left, a coat-of-arms carved above.",
+    "10": "A windowed but doorless castle room of orange-red stone bricks: an arched window in the left wall, and on the far wall a full-length framed portrait of a pale vampire count in a black cape with a high red collar.",
+    "11": "A long castle hallway in one-point perspective, orange-red brick walls, open doorways on both sides, a dark ceiling, the hall narrowing toward a far end.",
+    "12": "A castle kitchen of orange-red stone bricks: a large iron oven with ornate double doors in the middle of the far wall, and in the right-hand wall an empty square shaft opening for a dumb-waiter, a blue stone floor.",
+    "13": "View from lying inside a large open coffin: purple satin lining rising on each side, the rough rock ceiling of a crypt above draped thickly in cobwebs, eerie light.",
+    "14": "A castle pantry: rows of empty wooden shelves on orange-red brick walls, a small barred window on the right wall, a stone floor.",
+    "15": "Inside a giant solar oven: a tall narrow brick shaft seen in perspective, a huge dark round lens set in the ceiling above like a staring eye, brick walls closing in.",
+    "16": "A castle dungeon: worn stone walls, a tall arched doorway on the left, a stone stair, two iron rings set in the right wall, and a dark round pit opening in the floor.",
+    "17": "A meandering path winding up green hills toward a forbidding castle on a rocky crag on the left, jagged mountains behind, and on the right an iron fence with an open gate beyond which a crowd of villagers gathers in silhouette.",
+    "18": "The bottom of a deep rough stone pit, looking across a slimy green floor at the encircling boulder walls, dim light from above.",
+    "19": "A dark rough rock passage receding into blackness, a dirt floor, rocky walls closing in.",
+    "20": "View from inside a cramped dumb-waiter: the iron frame bars of the shaft in the foreground on the left, looking out into a brick room with a blue floor beyond.",
+    "21": "A castle workroom of orange-red stone bricks: a plain white wooden door in the middle of the far wall (closed), a small barred vent high on the left, a small barred window on the right wall, stone steps leading down in the front left corner.",
+    "22": "Death in Transylvania: a moonlit graveyard at night, an open grave with a broken coffin, a leaning tombstone with a cross, gnarled thorny vines, a bat silhouetted against the moon."
+  },
+  "items": {
+    "1": "An arched castle casement window flung wide open, its wooden frame swung inward, seen at an angle as if set in a side wall.",
+    "6": "A white bedsheet twisted into a rope, hanging straight down and trailing at the bottom, as if from a window above (the top edge cut off).",
+    "7": "A white bedsheet knotted around the tip of an iron flagpole that sticks out HORIZONTALLY to the right, the sheet hanging straight down from the knot.",
+    "13": "An open plain white wooden door in its frame, swung open to reveal darkness beyond.",
+    "29": "An open dark wooden coffin with its lid propped up, red satin lining inside, empty.",
+    "30": "A closed dark wooden coffin with brass handles, lying flat.",
+    "36": "A white bedsheet knotted around a brass bedpost and trailing across the floor like a rope.",
+    "40": "A broken brass slide-bolt lock, its bolt bent and snapped.",
+    "52": "Count Dracula, a tall pale vampire in a black cape with a high red-lined collar, fangs bared, arms raised menacingly, full body.",
+    "55": "A white bedsheet knotted to an iron wall ring and hanging straight down.",
+    "56": "A dark, foreboding jagged opening in a slab of rough rock, the hole itself SOLID PITCH BLACK and fully opaque (not see-through), the rock edges around it.",
+    "63": "A small open-fronted wooden dumb-waiter box hanging on ropes.",
+    "67": "A mouldy old skeleton lying on its back with a sharpened wooden stake driven through its rib cage."
+  }
+}
