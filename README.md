@@ -232,16 +232,17 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
 | Savage Island, Part I | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 34 rooms |
 | Savage Island, Part II | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 30 rooms |
+| Return to Pirate's Isle | TI-99/4A | cartridge `.rpk`, or its two `.bin` files | 21 of 24 rooms (the cartridge has none for the other three) |
 | The Incredible Hulk | Atari 8-bit | picture disk (side B) `.atr` | 19 of 20 rooms (the disk has none for the fuzzy area), the dark, six close-ups |
 | Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms, objects and villains drawn in |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 33 of 40 rooms |
 | Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms, objects drawn in |
 
-When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 and Apple II releases name each picture after its room or item; an item's picture is drawn over the room while the item is there. The Atari releases store theirs in room order or list them in an index.
+When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 and Apple II releases name each picture after its room or item; an item's picture is drawn over the room while the item is there. The Atari releases store theirs in room order or list them in an index. Return to Pirate's Isle draws its pictures with its own machine code, so SABAL runs that code on a small built-in TMS9900 emulator and reads the picture back from video memory.
 
 ### Node conveniences: `sabal/node`
 
-The core never touches the filesystem, so it runs in browsers too. Node programs can import `sabal/node` for two shortcuts: `loadPictures(dir)` reads the picture files in a folder into a `PictureLibrary`, and `encodePng(image, scale)` turns a picture into a PNG, enlarged without smoothing so the blocky originals stay sharp. `scale` multiplies the picture's usual size and can be any number, such as `1.5`.
+The core never touches the filesystem, so it runs in browsers too. Node programs can import `sabal/node` for two shortcuts: `loadPictures(dir)` reads the picture files in a folder into a `PictureLibrary` (opening TI-99/4A `.rpk` cartridge packs into their ROM files), and `encodePng(image, scale)` turns a picture into a PNG, enlarged without smoothing so the blocky originals stay sharp. `scale` multiplies the picture's usual size and can be any number, such as `1.5`.
 
 The Spectrum and Atari/C64 bitmap decoders are adapted from David Lodge's MIT-licensed `sagadraw.c` and `arledraw.c`, written with help from Paul David Doherty (see [`NOTICE`](NOTICE)). The line-drawing formats of the first Atari and Apple II releases are undocumented; they were worked out from the pictures and from the games' own drawing code. Apple II colours are produced the way a colour monitor shows them, from how the lit pixels are spaced. Later Apple II releases (Adventureland 2.2, Voodoo Castle, The Count, Claymorgue) keep their pictures packed straight on the disk, with tables on track 0 saying where each lies; those are read too, recognised by a checksum of the tables.
 
