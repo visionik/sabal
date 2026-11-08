@@ -1,0 +1,42 @@
+{
+  "game": "Mini-Adventure Sampler",
+  "rooms": {
+    "1": "A dismal swamp: dark murky water with lily pads and purple flowers, dead grey trees on the far bank, a low grey mist, a small muddy hummock in the foreground. The middle of the scene is open water and mud.",
+    "2": "View from the top of a tall cypress tree: a massive trunk and spreading branches with clumps of green needles, a bright blue sky with a white cloud, the swamp far below.",
+    "3": "Inside a damp hollow tree stump: curved walls of dark wet wood around the viewer, a circle of grey sky high above, a dark hole in the soft floor, a small blank wooden sign (no writing) on the wall.",
+    "4": "A root chamber under a tree stump: gnarled tree roots twisting through earthen walls and ceiling, a dark hole in the back wall, a bare earth floor.",
+    "5": "A semi-dark hole by a root chamber: a rough earthen cave lit dimly from one side, gnarled roots overhead. The far earth wall is bare and flat in the middle, with NO door, no opening, nothing on it.",
+    "6": "A long hall sloping down underground: stone walls in perspective, worn steps descending into darkness, faint torchlight.",
+    "10": "The shore of a clear blue lake on a sunny day: gentle waves, distant green hills, a sandy beach, a small blank wooden sign on a post (no writing).",
+    "11": "A deep green forest: tall straight tree trunks and a dense leafy canopy, ferns and grass on the forest floor, dappled light.",
+    "23": "A sunny meadow of bright green grass and wildflowers under a blue sky with a fluffy cloud, a tree at the right edge, a small blank wooden sign on a post (no writing). The centre of the meadow is open grass.",
+    "24": "Death: a grinning red devil with horns and a pointed tail, holding a pitchfork, standing before roaring orange flames.",
+    "25": "A hidden grove: a sheltered clearing ringed by dark green trees, a single fruit tree in the middle, a small blank wooden sign (no writing).",
+    "26": "A quick-sand bog: a wide pool of glistening tan quicksand surrounded by reeds and dark green trees under a grey sky.",
+    "28": "View from the top of an oak tree: leafy branches in the foreground, to the east a sunny meadow and beyond it a blue lake glinting, a blue sky.",
+    "29": "The edge of a BOTTOMLESS hole: a huge round black pit in a grassy field, a large blank billboard on posts beside it (no writing), blue sky.",
+    "30": "A narrow rock ledge just below the rim of a bottomless hole: dark earthen walls, a sliver of sky above, infinite blackness below.",
+    "32": "An endless corridor: a wooden corridor of repeating door frames receding forever into darkness, in perfect one-point perspective.",
+    "33": "A large misty room with a high ceiling, three dark arched exits across the far wall, curious carved symbols above each arch, purple mist drifting across a pale stone floor."
+  },
+  "items": {
+    "2": "A clay pot overflowing with glittering red rubies.",
+    "3": "A large spider web stretched between twigs, with a fat spider in the middle.",
+    "4": "A felled tree: a hollow stump with the long trunk of the fallen cypress lying beside it.",
+    "5": "A tall cypress tree with a thick trunk, flared roots and dense green needle foliage.",
+    "7": "A patch of thick, foul-smelling black mud with bubbles.",
+    "8": "A silver lake fish leaping.",
+    "11": "A rusty old woodcutter's axe with a wooden handle.",
+    "14": "A large iron ring of old skeleton keys.",
+    "16": "A heavy, locked wooden door with iron bands and a big keyhole, in a rough wooden frame.",
+    "17": "An open wooden door in a rough frame, a dim hallway beyond.",
+    "18": "Wisps of pale green glowing swamp gas drifting low.",
+    "22": "Patches of oily, iridescent black slime on the ground.",
+    "27": "A large green-scaled dragon curled up asleep, wings folded, a curl of smoke from its nostrils.",
+    "28": "A flint stone and a steel fire-striker.",
+    "42": "A small swarm of tiny red chigger mites.",
+    "46": "A magical fruit made of glittering jewels: a golden apple studded with gems.",
+    "47": "A small statue of a blue ox on a little stone plinth.",
+    "55": "A dead fish lying on its side."
+  }
+}

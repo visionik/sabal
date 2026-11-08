@@ -1,0 +1,26 @@
+{
+  "game": "Savage Island, Part II",
+  "rooms": {
+    "1": "A small, bare room aboard an alien spacecraft: smooth riveted white-and-blue metal panels, soft cold light, a closed-in, futuristic cell.",
+    "2": "A metal room aboard an alien spacecraft: a control console of glowing buttons, a large smooth plastic block on the floor, and a large radiant glowing neon tube sign on the wall made of abstract curving shapes (no letters).",
+    "3": "A long metal-lined tunnel aboard an alien spacecraft in strong one-point perspective: ribbed white and deep-blue curved wall panels, a black ceiling with bright white light strips, a white floor converging to a small glowing magenta hatch at the far end.",
+    "4": "A metal room aboard an alien spacecraft, white and blue riveted panels, an opening on one side, cold futuristic light.",
+    "8": "A metal room aboard an alien spacecraft used for hydroponics: racks of lush green plants growing under violet grow lights, and a tall glass display case standing empty against the wall.",
+    "10": "A metal room aboard an alien spacecraft with a blinking red light mounted above a shimmering doorway in the far wall.",
+    "11": "A gymnasium aboard an alien spacecraft: a treadmill, a large medicine ball, a freestanding punching bag and a small control console, on a gleaming metal floor.",
+    "12": "A red metal room aboard an alien spacecraft, walls of glossy red panels, a control console glowing against one wall.",
+    "13": "A red metal room aboard an alien spacecraft, walls of glossy red riveted panels, bare and softly lit.",
+    "14": "A cramped metal area aboard an alien spacecraft: low ceiling, pipes and ducts pressing in, barely room to stand.",
+    "15": "A metal storage hold aboard an alien spacecraft: giant boxes and crates stacked high, rows of glass display cases, and a pulsating red force field glowing across the back.",
+    "16": "Standing on a long red treadmill belt aboard an alien spacecraft, the belt running away from the viewer between metal railings, white walls and a blue ceiling.",
+    "17": "Looking out from inside an open glass display case aboard an alien spacecraft: the glass frame around the view, a single glowing button on the inside of the case, a metal room beyond.",
+    "20": "The main control room of an alien spacecraft: a wide curved control console of glowing lights and switches below a huge viewscreen showing stars and deep space.",
+    "22": "A small metal cabin aboard an alien spacecraft with a single soft padded sleeping platform, a small plastic wafer lying on it, cosy cold light.",
+    "23": "A metal dormitory aboard an alien spacecraft: rows of soft red padded sleeping platforms either side of a grey aisle, large cyan wall panels behind.",
+    "24": "A metal lifeboat hangar aboard an alien spacecraft, open to outer space: a large hexagonal hatch frame in the floor or wall, and through a huge opening the black of space with stars and a blue-green planet.",
+    "26": "A large metal room aboard an alien spacecraft full of humming machinery: pipes, cylinders and panels, with a control console in front.",
+    "27": "A large metal room aboard an alien spacecraft filled with strange machinery made of glossy white porcelain: curved bowl shapes, smooth pedestals and a small domed device, under cold light.",
+    "30": "Death: a doomed scene aboard an alien spacecraft — red alarm light flooding a metal corridor, a skull on the floor, ominous and final."
+  },
+  "items": {}
+}
