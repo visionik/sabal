@@ -23,6 +23,8 @@ import { APPLE_PALETTE, drawApple, parseApple, readDos33 } from './apple.js';
 import { drawPacked, packedPicture, type PackedPicture } from './apple-packed.js';
 import { crc32 } from './crc32.js';
 import { drawTi, tiPictureAddress, TI_PALETTE } from './ti99.js';
+import { Painter, SCENE_PALETTE, type SceneSet } from './scenes.js';
+import { PYRAMID_OF_DOOM, PYRAMID_OF_DOOM_ITEMS } from './scenes-adv08.js';
 
 /** A file the host has read, such as a tape or disk image. */
 export interface PictureFile {
@@ -49,7 +51,7 @@ export interface Picture {
   readonly image: PictureImage;
 }
 
-export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64' | 'Apple II' | 'TI-99/4A';
+export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64' | 'Apple II' | 'TI-99/4A' | 'SABAL';
 
 /** The games, told apart by adventure number and room 1's text (two games share number 2, two share 14). */
 const GAMES = {
@@ -59,6 +61,7 @@ const GAMES = {
   adv04: [4, 'chapel'],
   adv05: [5, "*I'm lying in a large brass bed"],
   adv06: [6, 'one man scoutship'],
+  adv08: [8, 'desert'],
   adv14a: [14, 'bottom bunk'],
   adv10: [10, 'Beach by ocean'],
   adv11: [11, 'small metal room'],
@@ -77,7 +80,7 @@ function gameOf(database: Database): GameId | undefined {
   );
 }
 
-type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease | ApplePackedRelease | TiRelease;
+type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease | ApplePackedRelease | TiRelease | SceneRelease;
 
 interface SpectrumRelease extends Common {
   readonly platform: 'ZX Spectrum';
@@ -126,6 +129,14 @@ interface TiRelease extends Common {
   /** CRC-32 of the cartridge's 8K ROM; its GROM must hold `text`. */
   readonly rom: number;
   readonly text: string;
+}
+
+/** SABAL's own pictures, for games that never had any; always available. */
+interface SceneRelease extends Common {
+  readonly platform: 'SABAL';
+  readonly scenes: SceneSet;
+  /** Things drawn over the room while they are in it: item number → picture number. */
+  readonly things: ReadonlyMap<number, number>;
 }
 
 interface Common {
@@ -325,6 +336,8 @@ const RELEASES: readonly Release[] = [
       22: 10, // paper room
     },
   },
+  // SABAL's own pictures come last, so a real release always wins.
+  { game: 'adv08', platform: 'SABAL', scenes: PYRAMID_OF_DOOM, things: PYRAMID_OF_DOOM_ITEMS },
 ];
 
 /** File names worth looking at. */
@@ -402,6 +415,7 @@ export class PictureLibrary {
 
   constructor(files: Iterable<PictureFile>) {
     const list = [...files];
+    for (const hit of builtIn()) this.consider(hit);
     for (const hit of recogniseCartridges(list)) this.consider(hit);
     for (const file of list) {
       if (!PICTURE_FILES.test(file.name)) continue;
@@ -644,6 +658,28 @@ function recogniseCartridges(files: readonly PictureFile[]): Found[] {
       render: ([n]) => {
         const bitmap = drawTi(rom.data, grom.data, pictures.get(n!)!);
         return image(bitmap ?? { width: 256, height: 96, pixels: new Uint8Array(256 * 96) }, TI_PALETTE, 4);
+      },
+    });
+  }
+  return hits;
+}
+
+/** SABAL's own pictures, which need no files. */
+function builtIn(): Found[] {
+  const hits: Found[] = [];
+  for (const release of RELEASES) {
+    if (!('scenes' in release)) continue;
+    const { scenes, things } = release;
+    hits.push({
+      release,
+      file: 'built in',
+      rooms: scenes.rooms,
+      items: things,
+      byName: false,
+      render: (layers) => {
+        const painter = new Painter();
+        for (const n of layers) scenes.pictures[n]?.(painter);
+        return image(painter.bitmap(), SCENE_PALETTE, 3);
       },
     });
   }

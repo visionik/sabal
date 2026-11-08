@@ -38,7 +38,7 @@ test('.d64 files are read by name, without their load address', () => {
 test('C64 pictures are named by room, and rooms described alike share one', () => {
   const disk = fakeD64([['R002', PICTURE], ['R006', PICTURE], ['DATA', [...Buffer.from('chem lab')]]]);
   const library = new PictureLibrary([{ name: 'spider.d64', data: disk }]);
-  assert.deepEqual(library.list(), [{ game: 'quest2', platform: 'Commodore 64', file: 'spider.d64' }]);
+  assert.deepEqual(library.list().filter((g) => g.platform !== "SABAL"), [{ game: 'quest2', platform: 'Commodore 64', file: 'spider.d64' }]);
   const spider = library.forGame(loadDatabase(readFileSync(new URL('../corpus/quest2.dat', import.meta.url), 'utf8')));
   assert.equal(spider.platform, 'Commodore 64');
   const room = (r) => spider.forState({ room: r, dark: false, itemLocations: [] })?.key;
