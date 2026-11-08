@@ -9,7 +9,7 @@ const start = pyramid.items.map((i) => i.initialLocation);
 
 test('Pyramid of Doom has SABAL\'s own pictures, with no files at all', () => {
   const library = new PictureLibrary([]);
-  assert.deepEqual(library.list(), [{ game: 'adv08', platform: 'SABAL', file: 'built in' }]);
+  assert.ok(library.list().some((g) => g.game === 'adv08' && g.platform === 'SABAL' && g.file === 'built in'));
   const game = library.forGame(pyramid);
   for (let room = 1; room < pyramid.rooms.length; room++) {
     const picture = game.forState({ room, dark: false, itemLocations: start });
@@ -33,9 +33,31 @@ test('things in a room are drawn over it, and change with the game', () => {
   assert.equal(at(8, { 29: 0 }).key, 'adv08:8');
 });
 
-test('a real release wins over SABAL\'s own pictures, and games without either get none', () => {
-  const ghostTown = loadDatabase(readFileSync(new URL('../corpus/adv09.dat', import.meta.url), 'utf8'));
-  assert.equal(new PictureLibrary([]).forGame(ghostTown), undefined);
+const corpus = (name) => loadDatabase(readFileSync(new URL(`../corpus/${name}.dat`, import.meta.url), 'utf8'));
+
+test('every game that never had pictures has SABAL\'s own, for every room it can show', () => {
+  const library = new PictureLibrary([]);
+  assert.deepEqual(library.list().map((g) => g.game).sort(), ['adv07', 'adv08', 'adv09', 'adv12', 'sampler1']);
+  for (const [name, minimum] of [['adv07', 35], ['adv09', 38], ['adv12', 34], ['sampler1', 17]]) {
+    const db = corpus(name);
+    const game = library.forGame(db);
+    assert.ok(game, name);
+    const locations = db.items.map((i) => i.initialLocation);
+    let drawn = 0;
+    for (let room = 1; room < db.rooms.length; room++) {
+      const picture = game.forState({ room, dark: false, itemLocations: locations });
+      if (!picture) continue;
+      drawn++;
+      assert.ok(picture.image.pixels.every((c) => c < SCENE_PALETTE.length), `${name} room ${room}`);
+      assert.ok(new Set(picture.image.pixels).size >= 3, `${name} room ${room} is more than a fill`);
+    }
+    assert.ok(drawn >= minimum, `${name}: ${drawn} rooms`);
+  }
+});
+
+test('games with a real release, and games we have no pictures for, are not given SABAL\'s', () => {
+  const library = new PictureLibrary([]);
+  assert.equal(library.forGame(corpus('adv01')), undefined, 'Adventureland needs its own files');
 });
 
 test('the painter fills shapes with textures and clips at the edges', () => {
