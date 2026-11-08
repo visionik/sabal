@@ -54,3 +54,11 @@ test('a picture paints double-width pixels down each column in its four colours'
   assert.equal(ATARI_PALETTE.length, 256);
   assert.deepEqual(ATARI_PALETTE[0], [13, 13, 13]);
 });
+
+test('the Hulk is listed among the Atari releases', async () => {
+  const { PictureLibrary } = await import('../dist/index.js');
+  // A disk that isn't the Hulk's isn't taken for it.
+  const atr = new Uint8Array(16 + 720 * 128);
+  atr.set([0x96, 0x02, 0, 0, 128, 0]);
+  assert.equal(new PictureLibrary([{ name: 'other.atr', data: atr }]).list().length, 0);
+});
