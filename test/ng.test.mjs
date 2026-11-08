@@ -92,3 +92,49 @@ test('the next-gen pictures that ship with SABAL are all listed and readable', (
     }
   }
 });
+
+test('pictures that aren\'t on disk are downloaded on first use into the cache, and checked', async () => {
+  const { createHash } = await import('node:crypto');
+  const dir = mkdtempSync(join(tmpdir(), 'sabal-ng-'));
+  const cache = mkdtempSync(join(tmpdir(), 'sabal-ng-cache-'));
+  const room = png(8, 4, 2, () => [0, 0, 255]);
+  const item = png(2, 2, 6, () => [255, 0, 0, 255]);
+  const sha = (b) => createHash('sha256').update(b).digest('hex');
+  const manifest = {
+    ...MANIFEST,
+    base: 'https://pictures.example/ng/',
+    files: {
+      'adv08/room-8.png': { size: room.length, sha256: sha(room) },
+      'adv08/item-29.png': { size: item.length, sha256: sha(item) },
+    },
+  };
+  writeFileSync(join(dir, 'manifest.json'), JSON.stringify(manifest));
+  const served = { 'https://pictures.example/ng/adv08/room-8.png': room, 'https://pictures.example/ng/adv08/item-29.png': item };
+  const asked = [];
+  const fetch = async (url) => {
+    asked.push(url);
+    const body = served[url];
+    return body ? new Response(body) : new Response('', { status: 404 });
+  };
+  const source = loadNg({ dir, cache, fetch });
+  assert.equal(source.ready('adv08'), false);
+  assert.deepEqual(source.missing('adv08'), { files: ['adv08/room-8.png', 'adv08/item-29.png'], bytes: room.length + item.length });
+  assert.throws(() => source.read('adv08/room-8.png'), /hasn't been downloaded/);
+  const progress = [];
+  assert.equal(await source.download('adv08', (done, total) => progress.push(`${done}/${total}`)), 2);
+  assert.deepEqual(progress.sort(), ['1/2', '2/2']);
+  assert.ok(source.ready('adv08'));
+  assert.deepEqual(source.read('adv08/room-8.png'), room);
+  assert.equal(await source.download('adv08'), 0, 'nothing more to fetch');
+  assert.equal(asked.length, 2);
+  // A later run finds them in the cache without downloading.
+  assert.ok(loadNg({ dir, cache, fetch }).ready('adv08'));
+
+  // A file that doesn't match its checksum is refused and not kept.
+  const cache2 = mkdtempSync(join(tmpdir(), 'sabal-ng-cache-'));
+  served['https://pictures.example/ng/adv08/item-29.png'] = room;
+  await assert.rejects(loadNg({ dir, cache: cache2, fetch }).download('adv08'), /didn't match its checksum/);
+  assert.equal(loadNg({ dir, cache: cache2, fetch }).missing('adv08').files.includes('adv08/item-29.png'), true);
+  // Without a cache folder there's nowhere to put them.
+  await assert.rejects(loadNg({ dir, fetch }).download('adv08'), /no cache folder/);
+});
