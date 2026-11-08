@@ -230,7 +230,6 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | | Atari 8-bit | picture disk `.atr` | every room and the dark |
 | | Apple II | picture disk (side A) `.dsk` | every room, objects drawn in, and the dark |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
-| Pyramid of Doom | SABAL's own | none needed | every room, objects and creatures drawn in |
 | Savage Island, Part I | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 34 rooms |
 | Savage Island, Part II | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 30 rooms |
 | Return to Pirate's Isle | TI-99/4A | cartridge `.rpk`, or its two `.bin` files | 21 of 24 rooms (the cartridge has none for the other three) |
@@ -238,10 +237,15 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms, objects and villains drawn in |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 33 of 40 rooms |
 | Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms, objects drawn in |
+| Mystery Fun House | SABAL's own | none needed | every room, objects drawn in |
+| Pyramid of Doom | SABAL's own | none needed | every room, objects and creatures drawn in |
+| Ghost Town | SABAL's own | none needed | every room, objects and ghosts drawn in |
+| The Golden Voyage | SABAL's own | none needed | every room you can reach, objects and people drawn in |
+| Mini-Adventure Sampler | SABAL's own | none needed | every room you can reach, objects drawn in |
 
 When the files hold more than one release of a game, the first listed for it wins. The Spectrum games choose their pictures in their own code, so those were matched to rooms, objects and messages by eye; a room whose match wasn't clear has no picture rather than a wrong one. The C64 and Apple II releases name each picture after its room or item; an item's picture is drawn over the room while the item is there. The Atari releases store theirs in room order or list them in an index. Return to Pirate's Isle draws its pictures with its own machine code, so SABAL runs that code on a small built-in TMS9900 emulator and reads the picture back from video memory.
 
-Some games never had pictures. For those, SABAL draws its own, new pictures in the style of the 8-bit releases: 160×80, a few colours, dithered skies and shading. They ship with the library, so they need no files, and a real release of the game, if one turns up, still wins. Pyramid of Doom has them so far.
+Some games never had pictures. For those, SABAL draws its own, new pictures in the style of the 8-bit releases: 160×80, a few colours, dithered skies and shading. They ship with the library, so they need no files, and a real release of the game, if one turns up, still wins. That covers Mystery Fun House, Pyramid of Doom, Ghost Town, The Golden Voyage and the Mini-Adventure Sampler, so every game in the corpus now has pictures.
 
 ### Node conveniences: `sabal/node`
 

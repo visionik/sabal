@@ -24,7 +24,11 @@ import { drawPacked, packedPicture, type PackedPicture } from './apple-packed.js
 import { crc32 } from './crc32.js';
 import { drawTi, tiPictureAddress, TI_PALETTE } from './ti99.js';
 import { Painter, SCENE_PALETTE, type SceneSet } from './scenes.js';
+import { MYSTERY_FUN_HOUSE, MYSTERY_FUN_HOUSE_ITEMS } from './scenes-adv07.js';
 import { PYRAMID_OF_DOOM, PYRAMID_OF_DOOM_ITEMS } from './scenes-adv08.js';
+import { GHOST_TOWN, GHOST_TOWN_ITEMS } from './scenes-adv09.js';
+import { GOLDEN_VOYAGE, GOLDEN_VOYAGE_ITEMS } from './scenes-adv12.js';
+import { SAMPLER, SAMPLER_ITEMS } from './scenes-sampler1.js';
 
 /** A file the host has read, such as a tape or disk image. */
 export interface PictureFile {
@@ -61,7 +65,11 @@ const GAMES = {
   adv04: [4, 'chapel'],
   adv05: [5, "*I'm lying in a large brass bed"],
   adv06: [6, 'one man scoutship'],
+  adv07: [7, "*I'm in front of the FUN HOUSE"],
   adv08: [8, 'desert'],
+  adv09: [9, 'Ghost Town'],
+  adv12: [12, 'Royal palace'],
+  sampler1: [65, 'dismal swamp'],
   adv14a: [14, 'bottom bunk'],
   adv10: [10, 'Beach by ocean'],
   adv11: [11, 'small metal room'],
@@ -337,7 +345,11 @@ const RELEASES: readonly Release[] = [
     },
   },
   // SABAL's own pictures come last, so a real release always wins.
+  { game: 'adv07', platform: 'SABAL', scenes: MYSTERY_FUN_HOUSE, things: MYSTERY_FUN_HOUSE_ITEMS },
   { game: 'adv08', platform: 'SABAL', scenes: PYRAMID_OF_DOOM, things: PYRAMID_OF_DOOM_ITEMS },
+  { game: 'adv09', platform: 'SABAL', scenes: GHOST_TOWN, things: GHOST_TOWN_ITEMS },
+  { game: 'adv12', platform: 'SABAL', scenes: GOLDEN_VOYAGE, things: GOLDEN_VOYAGE_ITEMS },
+  { game: 'sampler1', platform: 'SABAL', scenes: SAMPLER, things: SAMPLER_ITEMS },
 ];
 
 /** File names worth looking at. */
