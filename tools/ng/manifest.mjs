@@ -61,6 +61,20 @@ for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts
     else duplicates.push(`${game}/${name}`);
     rooms[name.slice(5, -4)] = seen.get(hash);
   }
+  // A room without its own painting shares one with a room the original
+  // pictures identically, or failing that, a room described the same way.
+  // (So a maze painted once covers every room of the maze.)
+  // ng/<game>/shared.json can name a room's painting outright, where the rules below would guess wrong.
+  const shared = existsSync(join(ng, game, 'shared.json')) ? JSON.parse(readFileSync(join(ng, game, 'shared.json'), 'utf8')) : {};
+  for (const [room, from] of Object.entries(shared)) if (rooms[from] && !rooms[room]) rooms[room] = rooms[from];
+  const ogKey = (room) => og?.forState({ room, dark: false, itemLocations: db.items.map(() => 0) })?.key;
+  for (let room = 1; room < db.rooms.length; room++) {
+    if (rooms[room]) continue;
+    const key = ogKey(room);
+    const text = db.rooms[room].text.trim();
+    const twin = Object.keys(rooms).find((r) => (key !== undefined && ogKey(Number(r)) === key) || (text.length > 1 && db.rooms[Number(r)]?.text.trim() === text));
+    if (twin) rooms[room] = rooms[twin];
+  }
   const items = {};
   for (const name of files) {
     const m = /^item-(\d+)\.png$/.exec(name);
