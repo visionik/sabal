@@ -9,7 +9,7 @@
 
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { deflateSync } from 'node:zlib';
+import { deflateSync, inflateRawSync } from 'node:zlib';
 import { PictureLibrary, PICTURE_FILES, type PictureFile, type PictureImage } from './pictures/library.js';
 import { crc32 } from './pictures/crc32.js';
 
@@ -20,7 +20,7 @@ const MAX_FILE = 1 << 20;
 export function readPictureFiles(dir: string): PictureFile[] {
   let names: string[] = [];
   try {
-    names = readdirSync(dir).filter((n) => PICTURE_FILES.test(n)).sort();
+    names = readdirSync(dir).filter((n) => PICTURE_FILES.test(n) || /\.rpk$/i.test(n)).sort();
   } catch {
     return [];
   }
@@ -28,7 +28,10 @@ export function readPictureFiles(dir: string): PictureFile[] {
   for (const name of names) {
     try {
       const path = join(dir, name);
-      if (statSync(path).size <= MAX_FILE) files.push({ name, data: readFileSync(path) });
+      if (statSync(path).size > MAX_FILE) continue;
+      const data = readFileSync(path);
+      if (/\.rpk$/i.test(name)) files.push(...unzip(data).map((f) => ({ name: `${name}/${f.name}`, data: f.data })));
+      else files.push({ name, data });
     } catch {
       // An unreadable file is skipped.
     }
@@ -79,3 +82,32 @@ function chunk(type: string, data: Buffer): Buffer {
 }
 
 export { PictureLibrary } from './pictures/library.js';
+
+/** The files in a zip archive (a TI-99/4A .rpk cartridge pack), stored or deflated. */
+function unzip(zip: Buffer): PictureFile[] {
+  const files: PictureFile[] = [];
+  let end = zip.length - 22;
+  while (end >= 0 && zip.readUInt32LE(end) !== 0x06054b50) end--;
+  if (end < 0) return files;
+  let p = zip.readUInt32LE(end + 16);
+  for (let n = zip.readUInt16LE(end + 10); n > 0 && p + 46 <= zip.length; n--) {
+    if (zip.readUInt32LE(p) !== 0x02014b50) break;
+    const method = zip.readUInt16LE(p + 10);
+    const size = zip.readUInt32LE(p + 20);
+    const nameLength = zip.readUInt16LE(p + 28);
+    const extra = zip.readUInt16LE(p + 30) + zip.readUInt16LE(p + 32);
+    const local = zip.readUInt32LE(p + 42);
+    const name = zip.toString('latin1', p + 46, p + 46 + nameLength);
+    p += 46 + nameLength + extra;
+    if (zip.readUInt32LE(local) !== 0x04034b50) continue;
+    const start = local + 30 + zip.readUInt16LE(local + 26) + zip.readUInt16LE(local + 28);
+    const body = zip.subarray(start, start + zip.readUInt32LE(local + 18));
+    try {
+      if (method === 0) files.push({ name, data: body });
+      else if (method === 8 && size <= MAX_FILE) files.push({ name, data: inflateRawSync(body) });
+    } catch {
+      // A damaged member is skipped.
+    }
+  }
+  return files;
+}

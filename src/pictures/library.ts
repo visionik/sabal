@@ -22,6 +22,7 @@ import { drawLines, linesAdventure, linesPicture, LINES_PALETTE, type Instructio
 import { APPLE_PALETTE, drawApple, parseApple, readDos33 } from './apple.js';
 import { drawPacked, packedPicture, type PackedPicture } from './apple-packed.js';
 import { crc32 } from './crc32.js';
+import { drawTi, tiPictureAddress, TI_PALETTE } from './ti99.js';
 
 /** A file the host has read, such as a tape or disk image. */
 export interface PictureFile {
@@ -48,7 +49,7 @@ export interface Picture {
   readonly image: PictureImage;
 }
 
-export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64' | 'Apple II';
+export type Platform = 'ZX Spectrum' | 'Atari 8-bit' | 'Commodore 64' | 'Apple II' | 'TI-99/4A';
 
 /** The games, told apart by adventure number and room 1's text (two games share number 2, two share 14). */
 const GAMES = {
@@ -58,6 +59,7 @@ const GAMES = {
   adv04: [4, 'chapel'],
   adv05: [5, "*I'm lying in a large brass bed"],
   adv06: [6, 'one man scoutship'],
+  adv14a: [14, 'bottom bunk'],
   adv10: [10, 'Beach by ocean'],
   adv11: [11, 'small metal room'],
   adv13: [13, 'field'],
@@ -75,7 +77,7 @@ function gameOf(database: Database): GameId | undefined {
   );
 }
 
-type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease | ApplePackedRelease;
+type Release = SpectrumRelease | AtariRelease | C64Release | AtariLinesRelease | AppleRelease | ApplePackedRelease | TiRelease;
 
 interface SpectrumRelease extends Common {
   readonly platform: 'ZX Spectrum';
@@ -117,6 +119,13 @@ interface ApplePackedRelease extends Common {
   readonly platform: 'Apple II';
   /** CRC-32 of the picture disk's index tables (track 0, sectors 1–6), to recognise it. */
   readonly packed: number;
+}
+
+interface TiRelease extends Common {
+  readonly platform: 'TI-99/4A';
+  /** CRC-32 of the cartridge's 8K ROM; its GROM must hold `text`. */
+  readonly rom: number;
+  readonly text: string;
 }
 
 interface Common {
@@ -184,6 +193,8 @@ const RELEASES: readonly Release[] = [
       { message: /Hulk rampages off/, picture: 16 },
     ],
   },
+  // The cartridge's own drawing code runs on an emulator; pictures are in room order.
+  { game: 'adv14a', platform: 'TI-99/4A', rom: 0x8eadb535, text: "Sorry, to explore Pirate's Isle you'll need Adventure #2" },
   { game: 'adv04', platform: 'Apple II', packed: 0x453db81c },
   { game: 'adv05', platform: 'Apple II', packed: 0xc7028e6f },
   { game: 'adv02', platform: 'Atari 8-bit', lines: 2 },
@@ -317,7 +328,7 @@ const RELEASES: readonly Release[] = [
 ];
 
 /** File names worth looking at. */
-export const PICTURE_FILES = /\.(tap|tzx|sna|atr|d64|dsk|do)$/i;
+export const PICTURE_FILES = /\.(tap|tzx|sna|atr|d64|dsk|do|bin)$/i;
 
 interface Found {
   readonly release: Release;
@@ -390,7 +401,9 @@ export class PictureLibrary {
   private readonly found = new Map<GameId, Found>();
 
   constructor(files: Iterable<PictureFile>) {
-    for (const file of files) {
+    const list = [...files];
+    for (const hit of recogniseCartridges(list)) this.consider(hit);
+    for (const file of list) {
       if (!PICTURE_FILES.test(file.name)) continue;
       let hits: Found[] = [];
       try {
@@ -398,13 +411,13 @@ export class PictureLibrary {
       } catch {
         // An odd file is skipped.
       }
-      for (const hit of hits) {
-        const current = this.found.get(hit.release.game);
-        if (!current || RELEASES.indexOf(hit.release) < RELEASES.indexOf(current.release)) {
-          this.found.set(hit.release.game, hit);
-        }
-      }
+      for (const hit of hits) this.consider(hit);
     }
+  }
+
+  private consider(hit: Found): void {
+    const current = this.found.get(hit.release.game);
+    if (!current || RELEASES.indexOf(hit.release) < RELEASES.indexOf(current.release)) this.found.set(hit.release.game, hit);
   }
 
   /** The games found, as corpus file names (`adv01`…), with the platform and file of each. */
@@ -603,6 +616,36 @@ function recognise({ name, data }: PictureFile): Found[] {
         },
       });
     }
+  }
+  return hits;
+}
+
+/**
+ * TI-99/4A cartridges come as two files, the ROM and the GROM (as extracted
+ * from a .rpk), so they are recognised as a pair.
+ */
+function recogniseCartridges(files: readonly PictureFile[]): Found[] {
+  const hits: Found[] = [];
+  for (const release of RELEASES) {
+    if (!('rom' in release)) continue;
+    const rom = files.find((f) => f.data.length === 8192 && crc32(f.data) === release.rom);
+    const grom = files.find((f) => f.data.length >= 24576 && f.data.length <= 0xa000 && latin1(f.data).includes(release.text));
+    if (!rom || !grom) continue;
+    const pictures = new Map<number, number>();
+    for (let room = 0; room < 64; room++) {
+      const address = tiPictureAddress(rom.data, room);
+      if (address) pictures.set(room, address);
+    }
+    hits.push({
+      release,
+      file: rom.name,
+      rooms: Object.fromEntries([...pictures].filter(([room]) => room > 0).map(([room]) => [room, room])),
+      byName: false,
+      render: ([n]) => {
+        const bitmap = drawTi(rom.data, grom.data, pictures.get(n!)!);
+        return image(bitmap ?? { width: 256, height: 96, pixels: new Uint8Array(256 * 96) }, TI_PALETTE, 4);
+      },
+    });
   }
   return hits;
 }
