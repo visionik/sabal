@@ -62,6 +62,7 @@ const GAMES = {
   adv11: [11, 'small metal room'],
   adv13: [13, 'field'],
   adv14b: [14, 'Yoyodyne office'],
+  quest1: [2, "*I'm Bruce Banner, tied hand & foot to a chair"],
   quest2: [2, 'small deserted Office'],
 } as const satisfies Record<string, readonly [number, string]>;
 
@@ -156,6 +157,33 @@ const RELEASES: readonly Release[] = [
   { game: 'adv13', platform: 'Commodore 64', text: "*I'm on a Drawbridge", prefix: 'R13' },
   { game: 'adv14b', platform: 'Commodore 64', text: 'Yoyodyne', prefix: 'R' },
   { game: 'quest2', platform: 'Commodore 64', text: 'chem lab', prefix: 'R' },
+  {
+    // The room pictures come first, in their own order; matched to rooms by eye.
+    game: 'quest1',
+    platform: 'Atari 8-bit',
+    disk: { start: 0x287, count: 69, skipSector: 360, crc: 0x3739ecd1 },
+    rooms: {
+      1: 4, // Bruce Banner, tied to a chair
+      ...same([2, 13, 14], 1), // the dome
+      ...same([3, 5, 6], 5), // tunnel going out, the WARNING sign
+      ...same([4, 7, 8], 2), // field, the dome beyond
+      ...same([9, 10, 11], 6), // hole: HULK UNDERGROUND!
+      12: 3, // cavern
+      15: 7, // small underground room
+      ...same([17, 18], 8), // warp
+      19: 9, // the Chief Examiner's office
+      20: 10, // limbo
+    },
+    dark: 0,
+    closeUps: [
+      { message: /gas fills room/i, picture: 17 }, // GAS!
+      { message: /Egg pulsates/, picture: 22 },
+      { message: /Ant-Man in it/, picture: 24 }, // Ant-Man, caged
+      { message: /Ant-Man controlled ants/, picture: 25 },
+      { message: /Dr Strange points|Strange says/, picture: 18 },
+      { message: /Hulk rampages off/, picture: 16 },
+    ],
+  },
   { game: 'adv04', platform: 'Apple II', packed: 0x453db81c },
   { game: 'adv05', platform: 'Apple II', packed: 0xc7028e6f },
   { game: 'adv02', platform: 'Atari 8-bit', lines: 2 },

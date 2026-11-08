@@ -232,6 +232,7 @@ A picture is an indexed-colour image: one palette index per pixel, a palette of 
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 15 of 32 rooms |
 | Savage Island, Part I | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 34 rooms |
 | Savage Island, Part II | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 12 of 30 rooms |
+| The Incredible Hulk | Atari 8-bit | picture disk (side B) `.atr` | 19 of 20 rooms (the disk has none for the fuzzy area), the dark, six close-ups |
 | Spider-Man | Commodore 64 | disk `.d64` | 39 of 40 rooms, objects and villains drawn in |
 | | ZX Spectrum | `.tap`, `.tzx` or `.sna` | 33 of 40 rooms |
 | Buckaroo Banzai | Commodore 64 | disk `.d64` | 28 of 35 rooms, objects drawn in |
