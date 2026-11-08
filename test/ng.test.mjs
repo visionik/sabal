@@ -130,6 +130,16 @@ test('pictures that aren\'t on disk are downloaded on first use into the cache, 
   // A later run finds them in the cache without downloading.
   assert.ok(loadNg({ dir, cache, fetch }).ready('adv08'));
 
+  // A picture redrawn since it was downloaded (its size in the manifest changed) is fetched again.
+  const item2 = png(3, 3, 6, () => [0, 255, 0, 255]);
+  served['https://pictures.example/ng/adv08/item-29.png'] = item2;
+  writeFileSync(join(dir, 'manifest.json'), JSON.stringify({ ...manifest, files: { ...manifest.files, 'adv08/item-29.png': { size: item2.length, sha256: sha(item2) } } }));
+  const redrawn = loadNg({ dir, cache, fetch });
+  assert.deepEqual(redrawn.missing('adv08').files, ['adv08/item-29.png']);
+  assert.equal(await redrawn.download('adv08'), 1);
+  assert.deepEqual(redrawn.read('adv08/item-29.png'), item2);
+  writeFileSync(join(dir, 'manifest.json'), JSON.stringify(manifest));
+
   // A file that doesn't match its checksum is refused and not kept.
   const cache2 = mkdtempSync(join(tmpdir(), 'sabal-ng-cache-'));
   served['https://pictures.example/ng/adv08/item-29.png'] = room;

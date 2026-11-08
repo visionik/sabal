@@ -75,6 +75,7 @@ for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts
     const twin = Object.keys(rooms).find((r) => (key !== undefined && ogKey(Number(r)) === key) || (text.length > 1 && db.rooms[Number(r)]?.text.trim() === text));
     if (twin) rooms[room] = rooms[twin];
   }
+  const places = existsSync(join(ng, game, 'places.json')) ? JSON.parse(readFileSync(join(ng, game, 'places.json'), 'utf8')) : {};
   const items = {};
   for (const name of files) {
     const m = /^item-(\d+)\.png$/.exec(name);
@@ -92,7 +93,11 @@ for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts
     const common = [...counts].sort((a, b) => b[1] - a[1])[0];
     const fallback = common ? JSON.parse(common[0]) : [0.35, 0.45, 0.3, 0.5];
     const differs = Object.fromEntries(Object.entries(at).filter(([, b]) => JSON.stringify(b) !== JSON.stringify(fallback)));
-    items[item] = { file: `${game}/${name}`, default: fallback, ...(Object.keys(differs).length ? { at: differs } : {}) };
+    // ng/<game>/places.json can place an item by hand, where the original's place doesn't suit the painting:
+    // { "<item>": { "default": box, "<room>": box } }.
+    const place = places[item] ?? {};
+    for (const [room, box] of Object.entries(place)) if (room !== 'default') differs[room] = box;
+    items[item] = { file: `${game}/${name}`, default: place.default ?? fallback, ...(Object.keys(differs).length ? { at: differs } : {}) };
     if (!common) console.warn(`${game} item ${item}: the original never draws it; placed in the middle`);
   }
   if (Object.keys(rooms).length === 0) continue; // not painted yet

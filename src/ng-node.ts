@@ -9,7 +9,7 @@
 // backgrounds) into one PNG.
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, isAbsolute, join } from 'node:path';
 import { deflateSync, inflateSync } from 'node:zlib';
@@ -58,11 +58,13 @@ export function loadNg(options: NgOptions | string = {}): NgSource | undefined {
   const check = (file: string) => {
     if (file.includes('..') || isAbsolute(file)) throw new Error(`bad picture file ${file}`);
   };
-  // A file is usable from the ng/ folder as is, or from the cache when its hash matches.
+  // A file is usable from the ng/ folder as is, or from the cache (downloads are checked as they arrive).
   const find = (file: string): string | undefined => {
     check(file);
     if (existsSync(join(dir, file))) return join(dir, file);
-    if (cache && existsSync(join(cache, file))) return join(cache, file);
+    // A downloaded copy counts only while it matches the manifest's size, so a redrawn picture is fetched again.
+    const size = manifest.files?.[file]?.size;
+    if (cache && existsSync(join(cache, file)) && (size === undefined || statSync(join(cache, file)).size === size)) return join(cache, file);
     return undefined;
   };
   const filesOf = (game: string): string[] => {
