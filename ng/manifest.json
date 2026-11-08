@@ -3,6 +3,7 @@
   1024,
   512
  ],
+ "base": "https://raw.githubusercontent.com/visionik/sabal/main/ng/",
  "games": {
   "adv08": {
    "rooms": {
@@ -550,6 +551,260 @@
      ]
     }
    }
+  }
+ },
+ "files": {
+  "adv08/room-1.png": {
+   "size": 213463,
+   "sha256": "f29ff60565f1476b563da89f95647f3ab3a4866a3eb4b2528c752b42ce0c657e"
+  },
+  "adv08/room-2.png": {
+   "size": 267202,
+   "sha256": "dd74cfd8fa735436be10ffddd8efe36968f6ba3247a093c346eefa84a2f86cb7"
+  },
+  "adv08/room-3.png": {
+   "size": 249715,
+   "sha256": "c725b969334a5ef972b7e17baf4b8fdadabad362f36f272c02b6fa704c2055ee"
+  },
+  "adv08/room-4.png": {
+   "size": 264650,
+   "sha256": "fceef18b149d3b1230bbe11bc2ee34b6563b63e97a53025b69fdf4553f2030df"
+  },
+  "adv08/room-5.png": {
+   "size": 360011,
+   "sha256": "b72242a3b46a5264a6abc5bfa8a257d49c69d20d73d260259fffb4bb3c3689b0"
+  },
+  "adv08/room-6.png": {
+   "size": 356867,
+   "sha256": "cd27be46c96ec4b98b2663f04585b48c35cf286f2c3e34c0095fd2e65e07b626"
+  },
+  "adv08/room-7.png": {
+   "size": 372011,
+   "sha256": "6026490708314eab0a657d620538635505d4aefdbf15dfb7b80dc011f6bc1d5c"
+  },
+  "adv08/room-8.png": {
+   "size": 384950,
+   "sha256": "b487fef1d10e808a6641123e2e3bbca50778e0c6eb99bbd041e55005e3f651fc"
+  },
+  "adv08/room-9.png": {
+   "size": 424714,
+   "sha256": "55ec41596d553a772b840c4422256eb3a53f91697caca589a630ed805362a4d6"
+  },
+  "adv08/room-10.png": {
+   "size": 398446,
+   "sha256": "21bfe8f6699de46b5db15cff660946927850128e802c9b3249a21b28b91962bb"
+  },
+  "adv08/room-11.png": {
+   "size": 349967,
+   "sha256": "e7c99de4e87e161e727d75c7698937b73a8fd99712c2effa7171ab2c90ea330f"
+  },
+  "adv08/room-12.png": {
+   "size": 318602,
+   "sha256": "e2f8bdf2edfe224edd8c0e0c8871b7e351cc67e61362546ac6f7d0e4c36b9fdd"
+  },
+  "adv08/room-13.png": {
+   "size": 358484,
+   "sha256": "6571b5c271f287873af938d216a2c856824c7c9b40994ed0174940c1183f1a46"
+  },
+  "adv08/room-14.png": {
+   "size": 388502,
+   "sha256": "fa7dd942464cc584be408bccd7421d65a609c37296879a61e520b2d6db46b228"
+  },
+  "adv08/room-15.png": {
+   "size": 320035,
+   "sha256": "db2358f1bf7d60091ef8ee498785154cddad46500325522f467b438afb6df5c7"
+  },
+  "adv08/room-16.png": {
+   "size": 356631,
+   "sha256": "907e9d7ef461f6b75801c863a81a3e6211a82ba1e7b34a66ed0984c6ad1670cf"
+  },
+  "adv08/room-17.png": {
+   "size": 434718,
+   "sha256": "c17a2356fcba1163e22444bc9f52dfb2f547d61006c805d29c88a1bba119eb07"
+  },
+  "adv08/room-18.png": {
+   "size": 378677,
+   "sha256": "a7beeed4314591d23b1198e381300b1788060ed9a4bac71c3c7d0dbb44bc0486"
+  },
+  "adv08/room-19.png": {
+   "size": 365685,
+   "sha256": "6ef76be4a67dfec48cf359ee91aae17d86b42d683e5dba90d0e84d7f50769942"
+  },
+  "adv08/room-20.png": {
+   "size": 307363,
+   "sha256": "309094de3a122c7cdcfee2fccc1e6a032fab397c888ce714e3fb3c5386a09252"
+  },
+  "adv08/room-21.png": {
+   "size": 330707,
+   "sha256": "18fdfb87096861cc26692940f7625f7a888b2a17b2b791e78942e0e0c365c893"
+  },
+  "adv08/room-22.png": {
+   "size": 327249,
+   "sha256": "c366637588058742f35f5bb58d0e6d2c7db5a467960850008749f2720a9264f3"
+  },
+  "adv08/room-23.png": {
+   "size": 237005,
+   "sha256": "7c5662f4efc2ce0372bd89e365f272f2964118c44362e7c24ae9c992a7f4f2d0"
+  },
+  "adv08/room-24.png": {
+   "size": 279451,
+   "sha256": "d6d436784cad7ed179705e7e09c15f4fe17d26fbee76d6a6cb2a0d0afbc522bf"
+  },
+  "adv08/room-25.png": {
+   "size": 375121,
+   "sha256": "3079aa6652cea28ff7b0a9af21d2dd21adc6dcfce083c093ed0e686052cb1efc"
+  },
+  "adv08/room-26.png": {
+   "size": 343874,
+   "sha256": "f35f2dba1815c27a5e40f16a04378a1695ed2618b712ab52177b4852fb1eac6c"
+  },
+  "adv08/room-27.png": {
+   "size": 375146,
+   "sha256": "8a0b36f21c48674c97e9dd16fe363d264cff711064ce2f3ba325e5ab3feeff50"
+  },
+  "adv08/item-10.png": {
+   "size": 31461,
+   "sha256": "096a6806eb1aea942d8747f81527ddb1e3abcc9bb5bd1ba4f9c3a569b8391beb"
+  },
+  "adv08/item-14.png": {
+   "size": 40795,
+   "sha256": "7068ec032cda95ef962d07488ebbafdd50ded0ab4ddb2b62d603c602f868ed81"
+  },
+  "adv08/item-20.png": {
+   "size": 58839,
+   "sha256": "fb2a82a0a2b0537d8a54f8618d4d642ac722d5a61ede5f04553c15b144b5e988"
+  },
+  "adv08/item-22.png": {
+   "size": 87855,
+   "sha256": "32abc6af34f43374ee7ae9b0deef71e2f6eb146d9cce5c3130fd56f71f8c7067"
+  },
+  "adv08/item-27.png": {
+   "size": 57588,
+   "sha256": "cbe0369de6b33220f268b8e1848d696ccfdda914bae7100a9127e80518e7b1bc"
+  },
+  "adv08/item-29.png": {
+   "size": 54331,
+   "sha256": "16c1efd6cfc18eadb4b9ae0d6775e8708211ffa0448f1aeb3ce262ccebec2c9e"
+  },
+  "adv08/item-32.png": {
+   "size": 58050,
+   "sha256": "0ea5644e0bb7b128e525779bef6a224318320bfe0b75759ff29e65082656cc93"
+  },
+  "adv08/item-33.png": {
+   "size": 33148,
+   "sha256": "cdb9af12c9ce6f7c2382a27cd57661469837d56b61650bf37113c7c3c4e56a22"
+  },
+  "adv08/item-44.png": {
+   "size": 114441,
+   "sha256": "8422671cff0c0bba62c9a9e8a1153f7e3e331f767b927bc496f9973485ebd4df"
+  },
+  "adv08/item-47.png": {
+   "size": 63678,
+   "sha256": "7f4c5d602932e21ba0b93635365d102c0272a9cb3f5cfa1fb5b09776ab0fa71d"
+  },
+  "adv08/item-48.png": {
+   "size": 74264,
+   "sha256": "fdda284ea2168ae960352c72dc6baaee5a203bb51a624aa78373e7226af36b65"
+  },
+  "adv08/item-49.png": {
+   "size": 67397,
+   "sha256": "2546caf54b4d0a09a960aed68905e3f8dd3c7bdc6b4220840840dcccd3f0b704"
+  },
+  "adv08/item-53.png": {
+   "size": 14396,
+   "sha256": "f5b6c19ecaeb5b45ca53c314518ffdd5c266cc18d894dea3156d1d77936b3844"
+  },
+  "adv08/item-54.png": {
+   "size": 39084,
+   "sha256": "9378cd2fd7493460f4a0c58d523ec0e1e3dbb131452cd20fda6228fcf0766be6"
+  },
+  "adv08/item-56.png": {
+   "size": 96758,
+   "sha256": "d56621db2c1c0ad5f5e98e676cf4e12b331adc053f70a96979b9e226f75a6b6c"
+  },
+  "adv08/item-58.png": {
+   "size": 33400,
+   "sha256": "0d0d33204a94bb6dc94ff08bc9efe3572488a7fe1bb3a711351bcfae094cce8e"
+  },
+  "adv08/item-60.png": {
+   "size": 44770,
+   "sha256": "3a61080e10b19ae6b64e88271d551d7518a7e07a877f5a24547ca756e8ded635"
+  },
+  "adv08/item-63.png": {
+   "size": 76648,
+   "sha256": "eb02eb4b50804695d40d397918e6a59b3c246bdc3ea41f0fabdd51369a550e45"
+  },
+  "adv08/item-66.png": {
+   "size": 97395,
+   "sha256": "9d557357efcbb5cdc19719c3e2311a61c7144bf1cb6e34319a970a6e24873935"
+  },
+  "adv08/item-69.png": {
+   "size": 74319,
+   "sha256": "d2859cc92db81d4abb1a532c260f4f997bd24208787fe101c1c17bc6204b4c55"
+  },
+  "adv08/item-71.png": {
+   "size": 79135,
+   "sha256": "e13268eb48cdc918146081261f42292f0df081196db051f90b27b7d9c6fc3a0c"
+  },
+  "adv08/item-73.png": {
+   "size": 83579,
+   "sha256": "eae8c3b8b19fd6342f282d3460f935aaf3e17abdb20f371bea13c9425d6e7845"
+  },
+  "adv08/item-76.png": {
+   "size": 41862,
+   "sha256": "3f0589042dc3c786b427c1086967c82a76cd6fa1180d93f83354a22e82d8dcd7"
+  },
+  "adv08/item-77.png": {
+   "size": 76015,
+   "sha256": "488d8bcf7502972e2375987fcc622497de1eb76cf43f9691d9f90b269b787aa0"
+  },
+  "adv08/item-78.png": {
+   "size": 100311,
+   "sha256": "e8a427c4694a057b0e370ebb81e63c76e5669cd47540f033d4f27b9e174d3945"
+  },
+  "adv08/item-79.png": {
+   "size": 81143,
+   "sha256": "3d2e8b4dc1d7c923be033760cfa46f03aae708ced54fa5cd450f2ce44b78d38e"
+  },
+  "adv08/item-80.png": {
+   "size": 78555,
+   "sha256": "27bc9122cdfd052d51b8dc1115f5faf3f1a45cb77ac80e879ad5eab2b649bc67"
+  },
+  "adv08/item-85.png": {
+   "size": 13661,
+   "sha256": "6b1a41d86b91212d92925e22907c71edc076605b8ba60bfbded4b25300087764"
+  },
+  "adv08/item-86.png": {
+   "size": 58071,
+   "sha256": "c8edd3df3dcacac60cc129de5a391f9e46f5adfb45ba328c3efc425990687bb1"
+  },
+  "adv08/item-92.png": {
+   "size": 51884,
+   "sha256": "ecde23fa43975704efc0b09b2c3d62b6a58877863127617f3f37ea2ee4ed2c0c"
+  },
+  "adv08/item-94.png": {
+   "size": 31943,
+   "sha256": "2a9115200aa63bbfe05c714a7feee34332a12ba488c52d95a55a0dc7b0f1e227"
+  },
+  "adv08/item-95.png": {
+   "size": 40463,
+   "sha256": "f549b6c963e1f66a6fc1d21665ab751cc978711ee56bfad49f4c7eeb6dd7584f"
+  },
+  "adv08/item-96.png": {
+   "size": 41647,
+   "sha256": "8e1beafc527ec676c2b81b8599a68812a121967fcbd94a54ecb18fccd72a9c08"
+  },
+  "adv08/item-98.png": {
+   "size": 92420,
+   "sha256": "8067751bf0c49f1cefff08ed7f1c768b51aad4842aaa2265c3806d82880a484b"
+  },
+  "adv08/item-99.png": {
+   "size": 88600,
+   "sha256": "4a01edfa2849d4624763d620265f0f77c04b9d6a27b4d7e245edce088a00e2f6"
+  },
+  "adv08/item-100.png": {
+   "size": 120047,
+   "sha256": "023dbfbb8828fead5e1c4cac317be78ebeca7a638552ccf4b88d13871cb572bc"
   }
  }
 }

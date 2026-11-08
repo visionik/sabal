@@ -8,40 +8,107 @@
 // and compose a picture's layers (the room, then items with transparent
 // backgrounds) into one PNG.
 
-import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import { dirname, isAbsolute, join } from 'node:path';
 import { deflateSync, inflateSync } from 'node:zlib';
 import { NgLibrary, type Box, type NgManifest, type NgPicture } from './pictures/ng.js';
 import { crc32 } from './pictures/crc32.js';
 
-/** The ng/ folder that ships with SABAL. */
+/** The ng/ folder that ships with SABAL (the manifest, and any pictures beside it). */
 export const NG_DIR = fileURLToPath(new URL('../ng/', import.meta.url));
 
-/** Next-gen pictures from a folder holding manifest.json and the PNGs it names. */
+/** Next-gen pictures: the manifest, and the PNGs it names, on disk or downloaded on first use. */
 export interface NgSource {
   readonly library: NgLibrary;
-  /** The bytes of a file the manifest names. */
+  /** Whether every picture for a game is here, so `read` won't fail for it. */
+  ready(game: string): boolean;
+  /** The files a game still needs, and their total size in bytes when the manifest knows it. */
+  missing(game: string): { files: string[]; bytes: number };
+  /**
+   * Download a game's missing pictures into the cache folder, checking each
+   * against the manifest's hash. Resolves to the number of files fetched.
+   */
+  download(game: string, progress?: (done: number, total: number) => void): Promise<number>;
+  /** The bytes of a file the manifest names; throws if it isn't here yet. */
   read(file: string): Buffer;
 }
 
-/** Load the next-gen pictures; undefined when the folder has none. */
-export function loadNg(dir: string = NG_DIR): NgSource | undefined {
+export interface NgOptions {
+  /** Where manifest.json is, and pictures that come with it (default: the package's ng/ folder). */
+  readonly dir?: string;
+  /** Where downloaded pictures are kept; without one, nothing is downloaded. */
+  readonly cache?: string;
+  /** Fetch, for tests (default: the global one). */
+  readonly fetch?: typeof fetch;
+}
+
+/** Load the next-gen pictures; undefined when there's no manifest. */
+export function loadNg(options: NgOptions | string = {}): NgSource | undefined {
+  const { dir = NG_DIR, cache, fetch: get = globalThis.fetch } = typeof options === 'string' ? { dir: options } : options;
   let manifest: NgManifest;
   try {
     manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8')) as NgManifest;
   } catch {
     return undefined;
   }
-  const cache = new Map<string, Buffer>();
+  const library = new NgLibrary(manifest);
+  const memory = new Map<string, Buffer>();
+  const check = (file: string) => {
+    if (file.includes('..') || isAbsolute(file)) throw new Error(`bad picture file ${file}`);
+  };
+  // A file is usable from the ng/ folder as is, or from the cache when its hash matches.
+  const find = (file: string): string | undefined => {
+    check(file);
+    if (existsSync(join(dir, file))) return join(dir, file);
+    if (cache && existsSync(join(cache, file))) return join(cache, file);
+    return undefined;
+  };
+  const filesOf = (game: string): string[] => {
+    const g = manifest.games[game];
+    if (!g) return [];
+    return [...new Set([...Object.values(g.rooms), ...Object.values(g.items ?? {}).map((i) => i.file), ...(g.dark ? [g.dark] : [])])];
+  };
+  const missing = (game: string) => {
+    const files = filesOf(game).filter((f) => !find(f));
+    return { files, bytes: files.reduce((n, f) => n + (manifest.files?.[f]?.size ?? 0), 0) };
+  };
   return {
-    library: new NgLibrary(manifest),
+    library,
+    ready: (game) => missing(game).files.length === 0,
+    missing,
+    async download(game, progress) {
+      const { files } = missing(game);
+      if (files.length === 0) return 0;
+      if (!cache) throw new Error('no cache folder to download next-gen pictures into');
+      if (!manifest.base) throw new Error('the manifest says nowhere to download pictures from');
+      let done = 0;
+      const queue = [...files];
+      const worker = async () => {
+        for (let file = queue.shift(); file; file = queue.shift()) {
+          const response = await get(new URL(file, manifest.base).toString());
+          if (!response.ok) throw new Error(`couldn't download ${file}: HTTP ${response.status}`);
+          const data = Buffer.from(await response.arrayBuffer());
+          const want = manifest.files?.[file]?.sha256;
+          if (want && createHash('sha256').update(data).digest('hex') !== want) throw new Error(`${file} didn't match its checksum`);
+          const path = join(cache, file);
+          mkdirSync(dirname(path), { recursive: true });
+          writeFileSync(`${path}.part`, data);
+          renameSync(`${path}.part`, path);
+          progress?.(++done, files.length);
+        }
+      };
+      await Promise.all(Array.from({ length: Math.min(6, files.length) }, worker));
+      return files.length;
+    },
     read(file) {
-      if (file.includes('..')) throw new Error(`bad picture file ${file}`);
-      let data = cache.get(file);
+      let data = memory.get(file);
       if (!data) {
-        data = readFileSync(join(dir, file));
-        cache.set(file, data);
+        const path = find(file);
+        if (!path) throw new Error(`${file} hasn't been downloaded`);
+        data = readFileSync(path);
+        memory.set(file, data);
       }
       return data;
     },

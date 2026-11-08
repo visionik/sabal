@@ -38,6 +38,10 @@ export interface NgGame {
 export interface NgManifest {
   /** Width and height of a room picture, in pixels. */
   readonly size: readonly [number, number];
+  /** Where the pictures can be downloaded from: a file's URL is its path resolved against this. */
+  readonly base?: string;
+  /** Each file's size and SHA-256, to check downloads. */
+  readonly files?: Readonly<Record<string, { readonly size: number; readonly sha256: string }>>;
   readonly games: Readonly<Record<string, NgGame>>;
 }
 

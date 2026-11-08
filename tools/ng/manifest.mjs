@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 // Build ng/manifest.json from the pictures in ng/<game>/.
 //
-// usage: node tools/ng/manifest.mjs [original-pictures-dir]
+// usage: node tools/ng/manifest.mjs [--pictures dir] [--out file] [--list game]
+//
+//   --pictures  the player's original picture files (default ~/.sabal-acp/pictures)
+//   --out       where to write the manifest (default ng/manifest.json)
+//   --list      print the items the original draws over rooms in one game, and
+//               the rooms, then stop: those are the items that need pictures
 //
 // Each item goes where the original release draws it: the original room is
 // drawn with and without the item, and the box around the pixels that change,
@@ -10,16 +15,33 @@
 // original-pictures-dir (default ~/.sabal-acp/pictures).
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { createHash } from 'node:crypto';
 import { homedir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const { loadDatabase } = await import(join(root, 'dist/index.js'));
 const { loadPictures } = await import(join(root, 'dist/node.js'));
-const originals = loadPictures(process.argv[2] ?? join(homedir(), '.sabal-acp', 'pictures'));
-const ng = join(root, 'ng');
 const SIZE = [1024, 512];
 const PAD = 0.15;
+const argv = process.argv.slice(2);
+const flag = (name) => (argv.includes(name) ? argv[argv.indexOf(name) + 1] : undefined);
+const originals = loadPictures(flag('--pictures') ?? join(homedir(), '.sabal-acp', 'pictures'));
+const listing = flag('--list');
+if (listing) {
+  const db = loadDatabase(readFileSync(join(root, 'corpus', `${listing}.dat`), 'utf8'));
+  const og = originals.forGame(db);
+  console.log(og ? `${listing}: originals from ${og.platform} (${og.file})` : `${listing}: no original pictures found`);
+  if (og) {
+    for (let item = 0; item < db.items.length; item++) {
+      const rooms = [];
+      for (let room = 1; room < db.rooms.length; room++) if (placement(og, db, room, item)) rooms.push(room);
+      if (rooms.length) console.log(`item ${item} "${db.items[item].text.trim()}": drawn in rooms ${rooms.length === db.rooms.length - 1 ? 'all' : rooms.join(' ')}`);
+    }
+  }
+  process.exit(0);
+}
+const ng = join(root, 'ng');
 const games = {};
 
 for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts.json'))).sort()) {
@@ -51,11 +73,21 @@ for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts
     items[item] = { file: `${game}/${name}`, default: fallback, ...(Object.keys(differs).length ? { at: differs } : {}) };
     if (!common) console.warn(`${game} item ${item}: the original never draws it; placed in the middle`);
   }
+  if (Object.keys(rooms).length === 0) continue; // not painted yet
   games[game] = { rooms, ...(Object.keys(items).length ? { items } : {}), ...(files.has('dark.png') ? { dark: `${game}/dark.png` } : {}) };
   console.log(`${game}: ${Object.keys(rooms).length} rooms, ${Object.keys(items).length} items${og ? ` (placed from ${og.platform})` : ' (no original to place items from)'}`);
 }
 
-writeFileSync(join(ng, 'manifest.json'), JSON.stringify({ size: SIZE, games }, null, 1) + '\n');
+// Every file's size and checksum, so a host can download pictures it lacks and check them.
+const files = {};
+for (const g of Object.values(games)) {
+  for (const file of [...Object.values(g.rooms), ...Object.values(g.items ?? {}).map((i) => i.file), ...(g.dark ? [g.dark] : [])]) {
+    const data = readFileSync(join(ng, file));
+    files[file] = { size: data.length, sha256: createHash('sha256').update(data).digest('hex') };
+  }
+}
+const base = 'https://raw.githubusercontent.com/visionik/sabal/main/ng/';
+writeFileSync(flag('--out') ?? join(ng, 'manifest.json'), JSON.stringify({ size: SIZE, base, games, files }, null, 1) + '\n');
 
 /** Where the original draws `item` in `room`: the changed pixels' box, padded, as fractions. */
 function placement(og, db, room, item) {

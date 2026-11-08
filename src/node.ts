@@ -82,7 +82,7 @@ function chunk(type: string, data: Buffer): Buffer {
 }
 
 export { PictureLibrary } from './pictures/library.js';
-export { loadNg, composeNg, decodePng, NG_DIR, type NgSource } from './ng-node.js';
+export { loadNg, composeNg, decodePng, NG_DIR, type NgSource, type NgOptions } from './ng-node.js';
 
 /** The files in a zip archive (a TI-99/4A .rpk cartridge pack), stored or deflated. */
 function unzip(zip: Buffer): PictureFile[] {
