@@ -247,6 +247,16 @@ When the files hold more than one release of a game, the first listed for it win
 
 Some games never had pictures. For those, SABAL draws its own, new pictures in the style of the 8-bit releases: 160×80, a few colours, dithered skies and shading. They ship with the library, so they need no files, and a real release of the game, if one turns up, still wins. That covers Mystery Fun House, Pyramid of Doom, Ghost Town, The Golden Voyage and the Mini-Adventure Sampler, so every game in the corpus now has pictures.
 
+### Next-gen pictures
+
+Alongside the originals, SABAL ships next-gen pictures: new, high-resolution paintings of each room, inspired by the original pictures and the game's text. They live in [`ng/`](ng/): each room is a 1024×512 PNG, and each item that the originals draw over a room is a PNG with a transparent background. `ng/manifest.json` lists them and says where each item goes; that's wherever the original release draws it.
+
+`NgLibrary` (in the core) takes the manifest and, like `GamePictures`, gives the picture for the player's state. It returns the layers to stack (the room, then each item in its box), so a browser can simply stack `<img>` elements. `sabal/node` adds `loadNg()`, which reads the `ng/` folder that ships with the package, and `composeNg(picture, read, scale)`, which blends the layers into one PNG.
+
+The pictures were generated with an image model from the prompts kept beside them (`ng/<game>/prompts.json`, with the shared style in `ng/style.json`), so any of them can be redrawn. `tools/ng/generate.py` asks Codex to paint the missing ones, `tools/ng/process.py` crops and shrinks them, and `tools/ng/manifest.mjs` places each item by drawing the original room with and without it.
+
+So far: Pyramid of Doom.
+
 ### Node conveniences: `sabal/node`
 
 The core never touches the filesystem, so it runs in browsers too. Node programs can import `sabal/node` for two shortcuts: `loadPictures(dir)` reads the picture files in a folder into a `PictureLibrary` (opening TI-99/4A `.rpk` cartridge packs into their ROM files), and `encodePng(image, scale)` turns a picture into a PNG, enlarged without smoothing so the blocky originals stay sharp. `scale` multiplies the picture's usual size and can be any number, such as `1.5`.

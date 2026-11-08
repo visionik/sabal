@@ -13,3 +13,5 @@ export { createSession, Session } from './session.js';
 export type { Options, StepResult, Event, Status, Snapshot } from './session.js';
 export { PictureLibrary, GamePictures, PICTURE_FILES } from './pictures/library.js';
 export type { PictureFile, PictureImage, Picture, Platform } from './pictures/library.js';
+export { NgLibrary, NgGamePictures } from './pictures/ng.js';
+export type { NgManifest, NgGame, NgItem, NgLayer, NgPicture, Box } from './pictures/ng.js';
