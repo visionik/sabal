@@ -255,7 +255,7 @@ The npm package carries only the manifest; the pictures stay in this repository.
 
 The pictures were generated with an image model from the prompts kept beside them (`ng/<game>/prompts.json`, with the shared style in `ng/style.json`), so any of them can be redrawn. `tools/ng/generate.py` asks Codex to paint the missing ones, `tools/ng/process.py` crops and shrinks them, and `tools/ng/manifest.mjs` places each item by drawing the original room with and without it.
 
-So far: Pyramid of Doom.
+So far: Adventureland, Pirate Adventure, Secret Mission, Voodoo Castle, Pyramid of Doom, Return to Pirate's Isle, Buckaroo Banzai and The Incredible Hulk.
 
 ### Node conveniences: `sabal/node`
 

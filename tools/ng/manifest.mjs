@@ -5,6 +5,7 @@
 //
 //   --pictures  the player's original picture files (default ~/.sabal-acp/pictures)
 //   --out       where to write the manifest (default ng/manifest.json)
+//   --games     only these games (comma-separated)
 //   --list      print the items the original draws over rooms in one game, and
 //               the rooms, then stop: those are the items that need pictures
 //
@@ -43,15 +44,22 @@ if (listing) {
 }
 const ng = join(root, 'ng');
 const games = {};
+const duplicates = [];
+const only = flag('--games')?.split(',');
 
-for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts.json'))).sort()) {
+for (const game of readdirSync(ng).filter((d) => existsSync(join(ng, d, 'prompts.json')) && (!only || only.includes(d))).sort()) {
   const files = new Set(readdirSync(join(ng, game)));
   const db = loadDatabase(readFileSync(join(root, 'corpus', `${game}.dat`), 'utf8'));
   const og = originals.forGame(db);
+  // Rooms painted the same (a maze, say) share one file, so it's downloaded once.
   const rooms = {};
-  for (const name of files) {
-    const m = /^room-(\d+)\.png$/.exec(name);
-    if (m) rooms[m[1]] = `${game}/${name}`;
+  const seen = new Map();
+  const roomFiles = [...files].filter((n) => /^room-\d+\.png$/.test(n)).sort((a, b) => parseInt(a.slice(5)) - parseInt(b.slice(5)));
+  for (const name of roomFiles) {
+    const hash = createHash('sha256').update(readFileSync(join(ng, game, name))).digest('hex');
+    if (!seen.has(hash)) seen.set(hash, `${game}/${name}`);
+    else duplicates.push(`${game}/${name}`);
+    rooms[name.slice(5, -4)] = seen.get(hash);
   }
   const items = {};
   for (const name of files) {
@@ -87,6 +95,7 @@ for (const g of Object.values(games)) {
   }
 }
 const base = 'https://raw.githubusercontent.com/visionik/sabal/main/ng/';
+if (duplicates.length) console.log(`same picture as another room (not needed in the repo): ${duplicates.join(' ')}`);
 writeFileSync(flag('--out') ?? join(ng, 'manifest.json'), JSON.stringify({ size: SIZE, base, games, files }, null, 1) + '\n');
 
 /** Where the original draws `item` in `room`: the changed pixels' box, padded, as fractions. */

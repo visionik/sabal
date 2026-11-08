@@ -1,0 +1,27 @@
+{
+  "game": "Return to Pirate's Isle",
+  "rooms": {
+    "1": "View from a lower bunk in a small modern cruise-ship cabin: the underside of the top bunk overhead, a decorative ship's wheel hanging on the wood-panelled wall, a white carpeted floor, soft light from a porthole.",
+    "2": "A small, tidy ship's cabin on a modern motor yacht: wood-panelled walls, a decorative ship's helm wheel mounted on the far wall, a round porthole with blue sky beyond, a ceiling fan, a bunk bed against the right wall with a ladder, a framed painting of a ship, a grey carpeted floor.",
+    "3": "A wooden dock jutting into a blue sea under a bright sky with white clouds and gulls; a sleek white-and-tan motor cruiser with a red-trimmed cabin is moored alongside, two black mooring bollards on the dock.",
+    "4": "View from the deck of a motor cruiser: a white railing in the foreground, the open blue sea beyond with small waves, a wooden dock just visible at the right edge, white clouds and gulls overhead.",
+    "5": "A sandy beach by a small green hill on a tropical island, the sea on the left, clouds and gulls in a blue sky.",
+    "6": "A narrow rocky ledge on the side of a sandstone cliff a few feet below a grassy hilltop, cracked tan rock face, sea and clouds beyond.",
+    "7": "The top of a small grassy hill on a tropical island, a jumble of grey boulders on the right with a narrow dark crack between them, blue sky with a gull.",
+    "10": "A tall, dark, weathered wooden stockade fence blocking the way, with a blank white warning board nailed to it (no writing), blue sky above.",
+    "11": "The open sea seen from the water's surface: rolling blue waves to the horizon, white clouds and gulls in a bright sky.",
+    "12": "Undersea: deep blue water with shafts of light, a dark rocky undersea slope, green seaweed swaying on a pale sandy bottom, small rising bubbles.",
+    "13": "A dim smugglers' hold deep inside a ship: grey steel walls and deck, a rectangular pool of sea water sunk into the floor glinting with light, a very narrow dark crawlway opening in the right wall.",
+    "15": "A rocky beach by the sea: tan and grey rocks along the shoreline, waves breaking, white clouds and gulls in a blue sky.",
+    "16": "View from a top bunk in a ship's cabin: a wooden floor far below in perspective, wood-panelled walls, a round porthole high on the left wall.",
+    "17": "Standing on top of a big red ship's diesel engine in a cramped engine room: pipes, a green control panel with gauges and warning stripes, red machinery all around.",
+    "18": "A ship's engine room: a big red diesel engine with pipework, a green electrical cabinet with a round dial and a small grille, a gauge with a green face, white and grey bulkheads, a ladder up.",
+    "19": "On a narrow catwalk along the outside of a ship's white hull beside a round porthole, a steel railing, the sea below, blue sky (no lettering on the hull).",
+    "20": "A very narrow dark crawlway inside a ship, a square steel tunnel receding into blackness, faint blue light on its edges.",
+    "21": "An empty ship's cargo hold: pale tan steel walls in perspective, a grey deck, a single bulkhead light.",
+    "22": "Under a wooden dock, looking out from a beam just above the water: the open sea stretching away, waves, sunlit clouds beyond the dock's shadow.",
+    "23": "A sunken wooden ship on the sea bed, its broken green-slimed hull and masts tilted, deep blue water, light from above, small fish.",
+    "24": "Never Never Land: a magical green valley with rolling hills, giant red and tan spotted mushrooms, a winding blue river, a rainbow behind white clouds, tufts of grass."
+  },
+  "items": {}
+}

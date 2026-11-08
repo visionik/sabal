@@ -1,0 +1,17 @@
+{
+  "game": "The Incredible Hulk",
+  "_shared": "Rooms that share a picture in the original share one here: 13 and 14 copy 2 (dome), 5 and 6 copy 3 (tunnel), 7 and 8 copy 4 (field), 10 and 11 copy 9 (hole), 18 copies 17 (warp).",
+  "rooms": {
+    "1": "A pale, muscular young scientist with dark hair, wearing torn purple trousers, tied hand and foot to a plain wooden chair in an empty violet-lit room, straining at the ropes.",
+    "2": "Inside a vast white geodesic dome, looking at a huge circular pit in the floor ringed with chunky blue stone blocks, the inside of the dome curving overhead.",
+    "3": "A long white tunnel leading outside: bright daylight, green hills and blue sky at the far arched end, white walls with dark green stripes, a blank white warning board mounted on the left wall (no writing).",
+    "4": "A wide open green field under a blue sky, a large tan geodesic dome on the horizon at the left, low mountains in the distance.",
+    "9": "Underground: the inside of a dark, narrow, rough-walled hole lit from above, earth and roots in the walls, a faint green glow below.",
+    "12": "A cavern of reddish-brown rock: a dark gaping cave mouth on the left, a broken tree stump on the right, rubble on the floor.",
+    "15": "A small underground room with walls of orange brick in perspective, a strange glowing scrawl on the left wall, a dark ceiling.",
+    "17": "A warp in space and time: impossible white geometric shapes (cubes joined by beams, a jagged lightning shape) floating in a starry violet void.",
+    "19": "An office where a sinister bald examiner in a high-collared robe works behind a big wooden desk, ignoring the viewer; a closed brown office door on the right with a blank name plate.",
+    "20": "A state of limbo: a white stone stairway rising through swirling grey and white clouds into a deep blue void."
+  },
+  "items": {}
+}

@@ -1,0 +1,32 @@
+{
+  "game": "Pirate Adventure",
+  "rooms": {
+    "1": "A shabby flat in London: a plain room with faded blue patterned wallpaper and a worn red striped carpet, an open doorway on the right wall, a blank wooden plaque on the far wall, grey daylight from a window.",
+    "2": "A small alcove in a London flat: pale green walls, a sash window with blue panes in the far wall, a door on the left, a low bookcase crammed with old books in the corner on the right, a red striped carpet.",
+    "3": "A dark secret passageway: a narrow corridor framed by heavy red-painted timber supports receding into blackness, a dusty red floor, a tiny lit doorway at the far end.",
+    "4": "A musty attic: sloping roof beams and dusty planks overhead in perspective, a long wooden floor, cobwebs, old junk shadowy against the walls, a single dusty shaft of light.",
+    "5": "Outside an open window on the ledge of a very tall building: looking down from a narrow grey stone ledge at the green squares and streets of London far below, dizzying height.",
+    "6": "A sandy beach on a tropical isle: pale sand sloping to a calm turquoise lagoon, a blank wooden warning sign stuck in the sand on the right, a few clouds and seabirds in the sky.",
+    "7": "A maze of caves: dark caverns of blue-black rock with arched openings and hanging stalactites, the floor a flow of dark red stone, several shadowy passages leading off, a faint cold light.",
+    "8": "A meadow on a tropical island: green grass, a path leading to a small thatched grass shack on a rise, rocky hills and blue sky behind.",
+    "9": "Inside a grass shack: a domed frame of bent poles and thatch overhead, light coming through gaps, a rough red wooden table in the middle of a sandy floor.",
+    "10": "In the ocean: nothing but open sea stretching to the horizon under a hazy purple sky, gentle swells all around, lonely.",
+    "11": "A deep pit: dark rock walls, a pool of murky blue water filling the floor, a shaft of faint light falling from above, a closed door half hidden in the far wall.",
+    "12": "A maze of caves: dark caverns of blue-black rock with arched openings and hanging stalactites, the floor a flow of dark red stone, several shadowy passages leading off, a faint cold light.",
+    "13": "A maze of caves: dark caverns of blue-black rock with arched openings and hanging stalactites, the floor a flow of dark red stone, several shadowy passages leading off, a faint cold light.",
+    "14": "The foot of a cave-ridden hill on a tropical island: rolling red-brown hills dotted with dark cave mouths, a green path winding up towards the top, a purple evening sky.",
+    "15": "Inside a tool shed: a long room of red-painted wooden planks in perspective, shelves and pegs on the walls, a bare plank floor, light through gaps in the boards.",
+    "16": "A long hallway in dark rock: a low craggy tunnel of black and grey stone receding to a small lit opening at the far end, a dark red floor.",
+    "17": "A large cavern on the island: a great cave of brown and olive rock opening to grey light, and a small red wooden tool shed standing inside on the right.",
+    "18": "The top of a hill: looking down between red rocky slopes at the island and the sea below, and far off in the distance a small island with palm trees.",
+    "19": "A maze of caves: dark caverns of blue-black rock with arched openings and hanging stalactites, the floor a flow of dark red stone, several shadowy passages leading off, a faint cold light.",
+    "20": "Aboard a pirate ship anchored offshore: the wooden deck stretching ahead to the bow, a mast rising in the centre, the ship's wheel on a raised platform, the sea all around.",
+    "21": "The beach at Treasure Island: white sand curving along the shore, blue sea, a palm tree leaning in from the right, clouds on the horizon.",
+    "22": "A spooky old graveyard on a hill under a red striped sunset sky: crooked tombstones, a dead tree, and piles of empty and broken rum bottles everywhere.",
+    "23": "A large barren field: flat green ground stretching to a distant red-brick monastery with a small tower on the horizon, a blue sky with long clouds.",
+    "24": "A shallow lagoon: calm, clear shallow water over pale sand, the open ocean to the north beyond a line of surf, a quiet empty scene.",
+    "25": "Inside a sacked and deserted monastery: broken timbers and wrecked furniture, a cracked red wall with an arched window, rubble on the floor.",
+    "26": "Never Never Land: a magical landscape of rolling green hills, giant spotted toadstools, a waterfall, and a rainbow arching across a bright sky."
+  },
+  "items": {}
+}
